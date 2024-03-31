@@ -1,5 +1,8 @@
 package com.dogproductinventory.app;
 
+import java.util.List;
+import java.util.Arrays;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +27,11 @@ public class AppApplication {
 	@Bean
 	public CommandLineRunner DogStore(ManufacturerRepository manurepository) {
 		return (args) -> {
-			Manufacturer manu1 = new Manufacturer("testi1", "KATU123", "040123345");
-			Manufacturer manu2 = new Manufacturer("testi2", "tie345", "123345656");
-
-			manurepository.save(manu1);
-			manurepository.save(manu2);
+			List<Manufacturer> manufacturers = Arrays.asList(
+    			new Manufacturer("testi1", "KATU123", "040123345"),
+    			new Manufacturer("testi2", "tie345", "123345656")
+			);
+			manufacturers.forEach(manurepository::save);
 
 			log.info("all manufactrurers");
 			for (Manufacturer manu : manurepository.findAll()) {
