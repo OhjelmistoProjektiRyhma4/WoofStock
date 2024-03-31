@@ -1,0 +1,29 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3>all manufacturers</h3>
+
+    <table>
+        <tr>
+            <th>name</th>
+            <th>address</th>
+            <th>phone</th>
+        </tr>
+        <tr th:each="manufacturer : ${manufacturers}"> 
+            <td th:text="${manufacturer.name}"></td>
+            <td th:text="${manufacturer.address}"></td>
+            <td th:text="${manufacturer.phone}"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <a th:href="@{/addmanufacturer}">add manufacturer </a>
+    <br>
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3>add manufacturer</h3>
+    <form action="" method="post" th:action="@{save}" th:object="${manufacturer}">
+        <input type="text" th:field="*{name}" placeholder="name" required>
+        <input type="text" th:field="*{address}" placeholder="address" required>
+        <input type="text" th:field="*{phone}" placeholder="phone" required>
+        <button>lisää</button>
+    </form>
+</body>
+</html>
