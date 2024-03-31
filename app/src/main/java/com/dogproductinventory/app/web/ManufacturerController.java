@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ManufacturerController {
@@ -19,24 +19,35 @@ public class ManufacturerController {
     private ManufacturerRepository manurepository;
 
     // listaa kaikki valmistajat
-    @RequestMapping(value = { ("/manufacturerlist") }, method = RequestMethod.GET)
+    @GetMapping("/manufacturerlist")
     public String manufacturerList(Model model) {
         model.addAttribute("manufacturers", manurepository.findAll());
         return "manufacturerlist";
     }
 
     // lomake uudelle valmistajalle
-    @RequestMapping("/addmanufacturer")
+    @GetMapping("/addmanufacturer")
     public String addManufacturer(Model model) {
         model.addAttribute("manufacturer", new Manufacturer());
-        return "addmanufacturer";
+        return "manufacturerform";
+    }
+
+    @GetMapping("/editmanufacturer/{id}")
+    public String editManufacturer(@PathVariable("id") Long manuId, Model model) {
+        model.addAttribute("manufacturer", manurepository.findById(manuId));
+        return "manufacturerform";
     }
 
     // tallentaa tiedot repositoryyn ja palaa sivulle joka näyttää listan
-    @RequestMapping(value = { ("/save") }, method = RequestMethod.POST)
+    @PostMapping("/savemanufacturer")
     public String saveManufacturer(@ModelAttribute Manufacturer manu) {
         manurepository.save(manu);
         return "redirect:/manufacturerlist";
     }
 
+    @GetMapping("/deletemanufacturer/{id}")
+    public String deleteManufacturer(@PathVariable("id") Long manuId) {
+        manurepository.deleteById(manuId);
+        return "redirect:/manufacturerlist";
+    }
 }

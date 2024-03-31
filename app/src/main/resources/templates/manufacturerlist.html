@@ -19,6 +19,9 @@
             <td th:text="${manufacturer.name}"></td>
             <td th:text="${manufacturer.address}"></td>
             <td th:text="${manufacturer.phone}"></td>
+
+            <td><a th:href="@{/editmanufacturer/{id}(id=${manufacturer.id})}"  class="btn btn-success">edit</a></td>
+			<td><a th:href="@{/deletemanufacturer/{id}(id=${manufacturer.id})}" class="btn btn-danger">delete</a></td>
         </tr>
     </table>
     <br>

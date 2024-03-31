@@ -15,7 +15,7 @@ public class Manufacturer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long manufacturerId;
+	private long id;
 	private String name, address, phone;
 
 	public Manufacturer(String name, String address, String phone) {
@@ -45,12 +45,12 @@ public class Manufacturer {
 		this.dogProducts = dogProducts;
 	}
 
-	public long getManufacturerId() {
-		return manufacturerId;
+	public long getId() {
+		return id;
 	}
 
-	public void setManufacturerId(long manufacturerId) {
-		this.manufacturerId = manufacturerId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -79,7 +79,7 @@ public class Manufacturer {
 
 	@Override
 	public String toString() {
-		return "Manufacturer [manufacturerId=" + manufacturerId + ", name=" + name + ", address=" + address + ", phone="
+		return "Manufacturer [id=" + id + ", name=" + name + ", address=" + address + ", phone="
 				+ phone + ", dogProducts=" + dogProducts + "]";
 	}
 
