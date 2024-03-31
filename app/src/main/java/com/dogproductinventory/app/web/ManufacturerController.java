@@ -13,7 +13,6 @@ import com.dogproductinventory.app.domain.ManufacturerRepository;
 
 @Controller
 public class ManufacturerController {
-    // Kontrolleri valmistajalle!
 
     @Autowired
     private ManufacturerRepository manurepository;

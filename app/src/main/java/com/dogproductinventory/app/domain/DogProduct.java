@@ -8,11 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-//Geneerinen luokka koirien tuotteille, kaikki tuotteet esim sisältää
-//hinnan, nimen, määrän tms
-//Loogista, että koirien vaatteiden tietoluokka perii tältä ja 
-//on vain yksi kontrolleri kaikille tuotteille?
-
 @Entity
 public class DogProduct {
 
