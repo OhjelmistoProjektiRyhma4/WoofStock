@@ -26,11 +26,10 @@ public class DogProduct {
 	}
 
 	// Default constructor
-    public DogProduct() {
-    }
+    public DogProduct() {}
 
 
-	// Valmistajan lisääminen
+	// Valmistajan lisääminen DogProduct- tauluun
 	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
 	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa
 	@ManyToOne(fetch = FetchType.LAZY)
