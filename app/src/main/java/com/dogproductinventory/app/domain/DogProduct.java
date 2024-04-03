@@ -25,6 +25,11 @@ public class DogProduct {
 		this.manufacturer = manufacturer;
 	}
 
+	// Default constructor
+    public DogProduct() {
+    }
+
+
 	// Valmistajan lisääminen
 	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
 	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa

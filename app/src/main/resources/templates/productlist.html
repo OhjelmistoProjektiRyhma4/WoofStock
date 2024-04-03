@@ -1,0 +1,32 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3>all products</h3>
+
+    <table>
+        <tr>
+            <th>name</th>
+            <th>color</th>
+            <th>price</th>
+        </tr>
+        <tr th:each="product : ${products}"> 
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.color}"></td>
+            <td th:text="${product.price}"></td>
+
+            <td><a th:href="@{/editproduct/{id}(id=${product.productId})}"  class="btn btn-success">edit</a></td>
+			<td><a th:href="@{/deleteproduct/{id}(id=${product.productId})}" class="btn btn-danger">delete</a></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <a th:href="@{/addproduct}">add product </a>
+    <br>
+</body>
+</html>
