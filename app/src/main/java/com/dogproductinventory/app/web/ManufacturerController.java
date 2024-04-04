@@ -1,5 +1,8 @@
 package com.dogproductinventory.app.web;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,9 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ManufacturerController {
@@ -49,4 +56,15 @@ public class ManufacturerController {
         manurepository.deleteById(manuId);
         return "redirect:/manufacturerlist";
     }
+
+    @RequestMapping(value = "/manufacturerrest", method = RequestMethod.GET)
+    public @ResponseBody List<Manufacturer> manufacturersListRest() {
+        return (List<Manufacturer>) manurepository.findAll();
+    }
+
+    @RequestMapping(value = "/manufacturerrest/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<Manufacturer> manufacturerListRest(@PathVariable("id") Long manuId) {
+        return manurepository.findById(manuId);
+    }
+
 }

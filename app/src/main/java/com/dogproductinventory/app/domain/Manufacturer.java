@@ -2,6 +2,8 @@ package com.dogproductinventory.app.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,6 +36,7 @@ public class Manufacturer {
 	 * @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
 	 * private List<DogProduct> dogProducts;
 	 */
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
 	private List<DogProduct> dogProducts;
 
