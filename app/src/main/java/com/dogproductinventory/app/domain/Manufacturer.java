@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Manufacturer {
 
 	@Id
@@ -34,15 +34,13 @@ public class Manufacturer {
 
 	// One-to-Many tarkoittaa tässä, että valmistajalla voi olla useita tuotteita
 	// mappedBy manufacturer viittaa DogProduct taulun viiteavaimeen
-	
-	  @JsonIgnore
-	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
-	  private List<DogProduct> dogProducts;
-	 
-		/*
-		 * @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer") private
-		 * List<DogProduct> dogProducts;
-		 */
+	/*
+	 * @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
+	 * private List<DogProduct> dogProducts;
+	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
+	private List<DogProduct> dogProducts;
 
 	public List<DogProduct> getDogProducts() {
 		return dogProducts;
