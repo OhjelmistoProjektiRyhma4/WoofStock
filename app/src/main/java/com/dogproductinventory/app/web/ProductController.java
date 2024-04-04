@@ -18,7 +18,6 @@ public class ProductController {
     @Autowired
     private DogProductRepository productrepository;
 
-    // listaa kaikki tuotteet
     @GetMapping("/")
     public String etuSivu() {
         return "frontpage";
