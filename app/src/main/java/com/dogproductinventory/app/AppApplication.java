@@ -17,7 +17,7 @@ import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
 
 @SpringBootApplication
-public class AppApplication {
+public class AppApplication {//GITTI TOIMII????
 
 	private static final Logger log = LoggerFactory.getLogger(AppApplication.class);
 
