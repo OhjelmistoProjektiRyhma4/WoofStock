@@ -8,7 +8,8 @@
 </head>
 <body>
     <h3>all manufacturers</h3>
-
+    
+    
     <table>
         <tr>
             <th>name</th>
@@ -19,7 +20,7 @@
             <td th:text="${manufacturer.name}"></td>
             <td th:text="${manufacturer.address}"></td>
             <td th:text="${manufacturer.phone}"></td>
-
+            
             <td><a th:href="@{/editmanufacturer/{id}(id=${manufacturer.id})}"  class="btn btn-success">edit</a></td>
 			<td><a th:href="@{/deletemanufacturer/{id}(id=${manufacturer.id})}" class="btn btn-danger">delete</a></td>
         </tr>
@@ -27,8 +28,10 @@
     <br>
     <br>
     <a th:href="@{/addmanufacturer}">add manufacturer </a>
-    <br>
-    <br>
+    <br><br>
+    
     <a th:href="@{/productlist}">productlist </a>
+    <br><br>
+    <a th:href="@{/}">etusivu </a>
 </body>
 </html>

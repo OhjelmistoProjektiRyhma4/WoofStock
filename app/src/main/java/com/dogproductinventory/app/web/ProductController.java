@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 
-
 @Controller
 public class ProductController {
 
     @Autowired
     private DogProductRepository productrepository;
+
+    // listaa kaikki tuotteet
+    @GetMapping("/")
+    public String etuSivu() {
+        return "frontpage";
+    }
 
     // listaa kaikki tuotteet
     @GetMapping("/productlist")
@@ -26,7 +31,6 @@ public class ProductController {
         return "productlist";
     }
 
-     
     // lomake uudelle tuotteelle
     @GetMapping("/addproduct")
     public String addProduct(Model model) {
