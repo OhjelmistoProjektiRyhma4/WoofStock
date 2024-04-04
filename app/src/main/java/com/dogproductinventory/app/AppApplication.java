@@ -20,7 +20,7 @@ import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
 
 @SpringBootApplication
-public class AppApplication {//GITTI TOIMII????
+public class AppApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(AppApplication.class);
 
@@ -28,19 +28,14 @@ public class AppApplication {//GITTI TOIMII????
 		SpringApplication.run(AppApplication.class, args);
 	}
 
-	// tuotelista --> http://localhost:8080/productlist
-	// valmistajalista --> http://localhost:8080/manufacturerlist
-
-	// tallentaa pari testiä sovelluksen käynnistyessä ja tulostaa ne myös konsoliin
 	@Bean
 	public CommandLineRunner DogStore(ManufacturerRepository manurepository, DogProductRepository productrepository,
 			CustomerRepository customerRepo) {
 		return (args) -> {
 
-			// Manufacturer
 			List<Manufacturer> manufacturers = Arrays.asList(
-					new Manufacturer("testi1", "KATU123", "040123345"),
-					new Manufacturer("testi2", "tie345", "123345656"));
+				new Manufacturer("testi1", "KATU123", "040123345"),
+				new Manufacturer("testi2", "tie345", "123345656"));
 			manufacturers.forEach(manurepository::save);
 
 			log.info("all manufactrurers");
@@ -48,22 +43,23 @@ public class AppApplication {//GITTI TOIMII????
 				log.info(manu.toString());
 			}
 
-			// DogProduct
-			DogProduct a = new DogProduct("sadetakki", "punainen", 20, null);
-			DogProduct b = new DogProduct("kaulapanta", "sininen", 8, null);
-			DogProduct c = new DogProduct("kengät", "musta", 10, null);
-			productrepository.save(a);
-			productrepository.save(b);
-			productrepository.save(c);
+			List<DogProduct> dogProducts = Arrays.asList(
+				new DogProduct("sadetakki", "punainen", 20, null),
+				new DogProduct("kaulapanta", "sininen", 8, null),
+				new DogProduct("kengät", "musta", 10, null));
+			dogProducts.forEach(productrepository::save);
 
-			List<Customer> customerList = new ArrayList<>();
-			customerList
-					.add(new Customer("matti", "meikäläinen", "040123123", "matti@gmail.com", "kotitie123", "02940"));
-			customerList
-					.add(new Customer("tarja", "koskinen", "05012866", "tarja@gmail.com", "tarjankoti123", "00520"));
+			log.info("all products");
+			for (DogProduct product : productrepository.findAll()) {
+				log.info(product.toString());
+			}
+		
+			List<Customer> customers = Arrays.asList(
+				new Customer("matti", "meikäläinen", "040123123", "matti@gmail.com", "kotitie123", "02940"),
+				new Customer("tarja", "koskinen", "05012866", "tarja@gmail.com", "tarjankoti123", "00520"));
+			customers.forEach(customerRepo::save);
 
-			customerList.forEach(customerRepo::save);
-			log.info("asiakkaat --> ");
+			log.info("all customers");
 			for (Customer customer : customerRepo.findAll()) {
 				log.info(customer.toString());
 			}
