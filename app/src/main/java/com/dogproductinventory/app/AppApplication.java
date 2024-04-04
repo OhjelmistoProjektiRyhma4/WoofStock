@@ -1,6 +1,7 @@
 package com.dogproductinventory.app;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.slf4j.Logger;
@@ -11,6 +12,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.dogproductinventory.app.domain.Customer;
+import com.dogproductinventory.app.domain.CustomerRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.Manufacturer;
@@ -25,31 +28,26 @@ public class AppApplication {//GITTI TOIMII????
 		SpringApplication.run(AppApplication.class, args);
 	}
 
-
-	//  tuotelista --> http://localhost:8080/productlist
-	//  valmistajalista --> http://localhost:8080/manufacturerlist
-
+	// tuotelista --> http://localhost:8080/productlist
+	// valmistajalista --> http://localhost:8080/manufacturerlist
 
 	// tallentaa pari testiä sovelluksen käynnistyessä ja tulostaa ne myös konsoliin
 	@Bean
-	public CommandLineRunner DogStore(ManufacturerRepository manurepository, DogProductRepository productrepository) {
+	public CommandLineRunner DogStore(ManufacturerRepository manurepository, DogProductRepository productrepository,
+			CustomerRepository customerRepo) {
 		return (args) -> {
 
-
-			//Manufacturer
+			// Manufacturer
 			List<Manufacturer> manufacturers = Arrays.asList(
-    			new Manufacturer("testi1", "KATU123", "040123345"),
-    			new Manufacturer("testi2", "tie345", "123345656")
-			);
+					new Manufacturer("testi1", "KATU123", "040123345"),
+					new Manufacturer("testi2", "tie345", "123345656"));
 			manufacturers.forEach(manurepository::save);
-
 
 			log.info("all manufactrurers");
 			for (Manufacturer manu : manurepository.findAll()) {
 				log.info(manu.toString());
 			}
 
-			
 			// DogProduct
 			DogProduct a = new DogProduct("sadetakki", "punainen", 20, null);
 			DogProduct b = new DogProduct("kaulapanta", "sininen", 8, null);
@@ -58,7 +56,17 @@ public class AppApplication {//GITTI TOIMII????
 			productrepository.save(b);
 			productrepository.save(c);
 
+			List<Customer> customerList = new ArrayList<>();
+			customerList
+					.add(new Customer("matti", "meikäläinen", "040123123", "matti@gmail.com", "kotitie123", "02940"));
+			customerList
+					.add(new Customer("tarja", "koskinen", "05012866", "tarja@gmail.com", "tarjankoti123", "00520"));
 
+			customerList.forEach(customerRepo::save);
+			log.info("asiakkaat --> ");
+			for (Customer customer : customerRepo.findAll()) {
+				log.info(customer.toString());
+			}
 		};
 	}
 }
