@@ -19,14 +19,16 @@ public class ManufacturerRepositoryTest {
     public void createNewManufacturerTest() {
         Manufacturer manufacturer = new Manufacturer("Mustin Murkina", "Goottikatu 3", "066 066060");
     	manufacturerRepository.save(manufacturer);
-    	assertThat(manufacturerRepository.findById(2L).get().getName()).isEqualTo("Mustin Murkina");
+    	assertThat(manufacturerRepository.findById(3L).get().getName()).isEqualTo("Mustin Murkina");
+
+        //Uusi valmistaja saa ID:n 3, koska AppApplicationissa on luotu jo kaksi valmistajaa.
     }    
 
     @Test
     public void deleteManufacturerTest() {
-        assertThat(manufacturerRepository.findById(2L)).isNotNull();
+        assertThat(manufacturerRepository.findById(3L)).isNotNull();
 
         manufacturerRepository.deleteById(2L);
-        assertThat(manufacturerRepository.findById(2L)).isEmpty();
+        assertThat(manufacturerRepository.findById(3L)).isEmpty();
     }
 }
