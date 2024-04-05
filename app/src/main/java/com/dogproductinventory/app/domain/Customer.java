@@ -1,13 +1,9 @@
 package com.dogproductinventory.app.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Customer {
@@ -16,11 +12,6 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long customerId;
     private String firstName, lastName, phone, email, address, postcode;
-
-    // @ManyToOne(fetch = FetchType.LAZY)
-    //
-    // @JoinColumn(name = "")
-    // private ;
 
     public Customer() {
     }
