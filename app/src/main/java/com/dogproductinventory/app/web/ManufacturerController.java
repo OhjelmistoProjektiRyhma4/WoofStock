@@ -59,14 +59,15 @@ public class ManufacturerController {
         return "redirect:/manufacturerlist";
     }
 
-    @RequestMapping(value = "/manufacturerrest", method = RequestMethod.GET)
-    public @ResponseBody List<Manufacturer> manufacturersListRest() {
-        return (List<Manufacturer>) manurepository.findAll();
-    }
-
-    @RequestMapping(value = "/manufacturerrest/{id}", method = RequestMethod.GET)
-    public @ResponseBody Optional<Manufacturer> manufacturerListRest(@PathVariable("id") Long manuId) {
-        return manurepository.findById(manuId);
-    }
+	
+	  @RequestMapping(value = "/manufacturerrest", method = RequestMethod.GET)
+	  public @ResponseBody List<Manufacturer> manufacturersListRest() { return
+	  (List<Manufacturer>) manurepository.findAll(); }
+	  
+	  @RequestMapping(value = "/manufacturerrest/{id}", method = RequestMethod.GET)
+	  public @ResponseBody Optional<Manufacturer>
+	  manufacturerListRest(@PathVariable("id") Long manuId) { return
+	  manurepository.findById(manuId); }
+	 
 
 }

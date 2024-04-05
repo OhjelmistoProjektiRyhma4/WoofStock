@@ -65,9 +65,10 @@ public class ProductController {
         return "redirect:/productlist";
     }
 
-    @RequestMapping(value = "/productrest", method = RequestMethod.GET)
-    public @ResponseBody List<DogProduct> productsListRest() {
-        return (List<DogProduct>) productrepository.findAll();
-    }
+	/*
+	 * @RequestMapping(value = "/productrest", method = RequestMethod.GET)
+	 * public @ResponseBody List<DogProduct> productsListRest() { return
+	 * (List<DogProduct>) productrepository.findAll(); }
+	 */
 
 }

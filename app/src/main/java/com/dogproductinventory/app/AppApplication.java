@@ -33,26 +33,21 @@ public class AppApplication {
 			CustomerRepository customerRepo) {
 		return (args) -> {
 
-			List<Manufacturer> manufacturers = Arrays.asList(
-				new Manufacturer("testi1", "KATU123", "040123345"),
-				new Manufacturer("testi2", "tie345", "123345656"));
-			manufacturers.forEach(manurepository::save);
-
-			log.info("all manufactrurers");
-			for (Manufacturer manu : manurepository.findAll()) {
-				log.info(manu.toString());
-			}
-
-			List<DogProduct> dogProducts = Arrays.asList(
-				new DogProduct("sadetakki", "punainen", 20, null),
-				new DogProduct("kaulapanta", "sininen", 8, null),
-				new DogProduct("kengät", "musta", 10, null));
-			dogProducts.forEach(productrepository::save);
-
-			log.info("all products");
-			for (DogProduct product : productrepository.findAll()) {
-				log.info(product.toString());
-			}
+			  List<Manufacturer> manufacturers = Arrays.asList( new Manufacturer("testi1",
+			  "KATU123", "040123345"), new Manufacturer("testi2", "tie345", "123345656"));
+			  manufacturers.forEach(manurepository::save);
+			  
+			  log.info("all manufactrurers"); for (Manufacturer manu :
+			  manurepository.findAll()) { log.info(manu.toString()); }
+			  
+			  List<DogProduct> dogProducts = Arrays.asList( new DogProduct("sadetakki",
+			  "punainen", 20, null), new DogProduct("kaulapanta", "sininen", 8, null), new
+			  DogProduct("kengät", "musta", 10, null));
+			  dogProducts.forEach(productrepository::save);
+			  
+			  log.info("all products"); for (DogProduct product :
+			  productrepository.findAll()) { log.info(product.toString()); }
+			 
 		
 			List<Customer> customers = Arrays.asList(
 				new Customer("matti", "meikäläinen", "040123123", "matti@gmail.com", "kotitie123", "02940"),
