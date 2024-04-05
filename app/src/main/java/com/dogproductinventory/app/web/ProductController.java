@@ -25,7 +25,7 @@ public class ProductController {
     @Autowired
     private DogProductRepository productrepository;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String etuSivu() {
         return "index";
     }
