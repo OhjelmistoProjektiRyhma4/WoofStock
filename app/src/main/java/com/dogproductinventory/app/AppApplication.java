@@ -39,7 +39,7 @@ public class AppApplication {
 			  Manufacturer m2 = new Manufacturer("testi2","osoite2", "1254455675");
 			  manurepository.save(m2);
 			  
-			  //lisätään tuotteelle myös valmistaja DogProduct product1 = new
+			  //lisätään tuotteelle myös valmistaja
 			  DogProduct product1 = new DogProduct("takki", "punainen", 4,m1);
 			  productrepository.save(product1);
 			  DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8,m2);
