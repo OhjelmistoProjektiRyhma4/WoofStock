@@ -1,12 +1,10 @@
 package com.dogproductinventory.app;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,13 +31,13 @@ public class AppApplication {
 			CustomerRepository customerRepo) {
 		return (args) -> {
 			
-			
+			  //lisätään muutama valmistaja
 			  Manufacturer m1 = new Manufacturer("testi1", "osoite1", "12544");
 			  manurepository.save(m1);
 			  Manufacturer m2 = new Manufacturer("testi2","osoite2", "1254455675");
 			  manurepository.save(m2);
 			  
-			  //lisätään tuotteelle myös valmistaja
+			  //lisätään muutama tuote ja tuotteille myös valmistaja
 			  DogProduct product1 = new DogProduct("takki", "punainen", 4,m1);
 			  productrepository.save(product1);
 			  DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8,m2);
