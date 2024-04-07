@@ -33,24 +33,23 @@ public class AppApplication {
 			CustomerRepository customerRepo) {
 		return (args) -> {
 			
-			Manufacturer m1 = new Manufacturer("testi1", "osoite1", "12544");
-			manurepository.save(m1);
-			Manufacturer m2 = new Manufacturer("testi2", "osoite2", "1254455675");
-			manurepository.save(m2);
 			
-			log.info("all manufactrurers"); for (Manufacturer manu :
-				  manurepository.findAll()) { log.info(manu.toString()); }
-			
-			//lisätään tuotteelle myös valmistaja
-			DogProduct product1 = new DogProduct("takki","punainen",6,m1);
-			productrepository.save(product1);
-			DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8,m2);
-			productrepository.save(product2);
-			
-			log.info("all products"); for (DogProduct product :
-				  productrepository.findAll()) { log.info(product.toString()); }
-
+			  Manufacturer m1 = new Manufacturer("testi1", "osoite1", "12544");
+			  manurepository.save(m1);
+			  Manufacturer m2 = new Manufacturer("testi2","osoite2", "1254455675");
+			  manurepository.save(m2);
+			  
+			  //lisätään tuotteelle myös valmistaja DogProduct product1 = new
+			  DogProduct product1 = new DogProduct("takki", "punainen", 4,m1);
+			  productrepository.save(product1);
+			  DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8,m2);
+			  productrepository.save(product2);
+			  
+			  
+			  log.info("all products"); for (DogProduct product :
+			  productrepository.findAll()) { log.info(product.toString()); }
 			 
+
 			List<Customer> customers = Arrays.asList(
 				new Customer("matti", "meikäläinen", "040123123", "matti@gmail.com", "kotitie123", "02940"),
 				new Customer("tarja", "koskinen", "05012866", "tarja@gmail.com", "tarjankoti123", "00520"));
