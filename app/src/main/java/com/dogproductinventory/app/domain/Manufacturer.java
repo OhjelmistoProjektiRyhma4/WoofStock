@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,15 +33,8 @@ public class Manufacturer {
 
 	// One-to-Many tarkoittaa tässä, että valmistajalla voi olla useita tuotteita
 	// mappedBy manufacturer viittaa DogProduct taulun viiteavaimeen
-	
-	/*
-	 * @OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer") private
-	 * List<DogProduct> dogProducts;
-	 */
-	 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "manufacturer")
 	private List<DogProduct> dogProducts;
 
 	public List<DogProduct> getDogProducts() {

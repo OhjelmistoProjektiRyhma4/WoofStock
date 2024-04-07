@@ -1,7 +1,5 @@
 package com.dogproductinventory.app.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +16,18 @@ public class DogProduct {
 	private long productId;
 	private String name, color;
 	private int price;
+	
+	// Default constructor
+	public DogProduct() {
+	}
+
+	// Valmistajan lisääminen DogProduct- tauluun
+	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
+	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "manufacturer")
+	private Manufacturer manufacturer;
+
 
 	public DogProduct(String name, String color, int price, Manufacturer manufacturer) {
 		super();
@@ -27,17 +37,6 @@ public class DogProduct {
 		this.manufacturer = manufacturer;
 	}
 
-	// Default constructor
-	public DogProduct() {
-	}
-
-	// Valmistajan lisääminen DogProduct- tauluun
-	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
-	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "manufacturer")
-	private Manufacturer manufacturer;
 
 	// Valmistajan getterit ja setterit
 	public Manufacturer getManufacturer() {
