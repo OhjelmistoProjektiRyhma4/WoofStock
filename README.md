@@ -11,40 +11,40 @@ General
 
 <h2>DogProductInventory API contains dogproducts and manufacturers</h2>
 
-Dogproduct attributes:
+<h4>Dogproduct attributes:</h4>
 
-name(String)
-color(String)
-price(int)
-manufacturer(Manufacturer)
+<p>name(String)</p>
+<p>color(String)</p>
+<p>price(int)</p>
+<p>manufacturer(Manufacturer)</p>
 
-Manufacturer attributes:
+<h4>Manufacturer attributes:</h4>
 
-name(String)
-address(String)
-phone(String)
+<p>name(String)</p>
+<p>address(String)</p>
+<p>phone(String)</p>
 
 
-Root address for API content
+<h4>Root address for API content</h4>
 
 localhost:8080
 
-Get a list of dogproducts
+<h4>Get a list of dogproducts</h4>
 
-Method: GET
- /dogproducts
+<p>Method: GET</p>
+<p>/dogproducts</p>
 
-Get a dogproduct by id 
+<h4>Get a dogproduct by id </h4>
 
-Method: GET
-/dogproducts/{id}
+<p>Method: GET</p>
+<p>/dogproducts/{id}</p>
 
-Add new dogproduct
+<h4>Add new dogproduct</h4>
 
-Method: POST
-/dogproducts
-Header: ‘content-type’: ‘application/json’
-Body:
+<p>Method: POST</p>
+<p>/dogproducts</p>
+<p>Header: ‘content-type’: ‘application/json’</p>
+<p>Body:</p>
 
 {
 name: ‘some name’,
@@ -61,12 +61,12 @@ price: 5,
 manufacturer: { id: 2 }
 }
 
-Update dogproduct
+<h4>Update dogproduct</h4>
 
-Method: PUT
-/dogproducts/{id}
-Header: ‘content-type’: ‘application/json’
-Body:
+<p>Method: PUT</p>
+<p>/dogproducts/{id}</p>
+<p>Header: ‘content-type’: ‘application/json’</p>
+<p>Body:</p>
 
 {
 name: ‘new name’,
@@ -74,7 +74,7 @@ color: ‘new color’,
 price: 5
 }
 
-Get a list of manufacturers
+<h4>Get a list of manufacturers</h4>
 
 Method: GET
 /manufacturers
