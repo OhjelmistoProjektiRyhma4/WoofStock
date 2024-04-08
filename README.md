@@ -5,11 +5,11 @@ Dog product inventory tracker.
 
 
 
-DogProductInventory Api
+<h2>DogProductInventory Api</h2>
 
-General
+<h4>General</h4>
 
-<h2>DogProductInventory API contains dogproducts and manufacturers</h2>
+DogProductInventory API contains dogproducts and manufacturers
 
 <h4>Dogproduct attributes:</h4>
 
@@ -44,68 +44,71 @@ localhost:8080
 <p>Method: POST</p>
 <p>/dogproducts</p>
 <p>Header: ‘content-type’: ‘application/json’</p>
-<p>Body:</p>
+<p>Body:
 
 {
 name: ‘some name’,
 color: ‘some color’,
 price: 5
 }
+</p>
 
-Optional: add also manufacturer to the dogproduct:
-
+<p>Optional: add also manufacturer to the dogproduct:</p>
+<p>Body:
 {
 name: ‘some name’,
 color: ‘some color’,
 price: 5,
 manufacturer: { id: 2 }
 }
+</p>
 
 <h4>Update dogproduct</h4>
 
 <p>Method: PUT</p>
 <p>/dogproducts/{id}</p>
 <p>Header: ‘content-type’: ‘application/json’</p>
-<p>Body:</p>
+<p>Body:
 
 {
 name: ‘new name’,
 color: ‘new color’,
 price: 5
 }
-
+</p>
 <h4>Get a list of manufacturers</h4>
 
-Method: GET
-/manufacturers
+<p>Method: GET</p>
+<p>/manufacturers</p>
 
-Get manufacturer by id
+<h4>Get manufacturer by id</h4>
 
-Method: GET
-/manufacturers/{id}
+<p>Method: GET</p>
+<p>/manufacturers/{id}</p>
 
-Add new manufacturer:
+<h4>Add new manufacturer:</h4>
 
-Method:POST
-/manufacturers
-Header: ‘content-type’: ‘application/json’
-Body:
+<p>Method:POST</p>
+<p>/manufacturers</p>
+<p>Header: ‘content-type’: ‘application/json’</p>
+<p>Body:
 
 {
 name: ‘some name’
 address: ‘some address’
 phone: some number
 }
+</p>
+<h4>Update manufacturer:</h4>
 
-Update manufacturer:
-
-Method: PUT
-/manufacturers/{id}
-Header: ‘content-type’: ‘application/json’
-Body:
+<p>Method: PUT</p>
+<p>/manufacturers/{id}</p>
+<p>Header: ‘content-type’: ‘application/json’</p>
+<p>Body:
 
 {
 name: ‘new name’
 address: ‘new address’
 phone: new number
 }
+</p>
