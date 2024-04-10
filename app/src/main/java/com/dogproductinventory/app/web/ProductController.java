@@ -34,13 +34,13 @@ public class ProductController {
     public String productList(Model model) {
         model.addAttribute("productlist", productrepository.findAll());
 
-        // vaatekategoriat
+        // tuote kategoriat
         Set<String> kategoriat = new HashSet<>();
         for (DogProduct dogProduct : productrepository.findAll()) {
             String tuote = dogProduct.getName();
             kategoriat.add(tuote);
         }
-        model.addAttribute("vaatekappaleet", kategoriat);
+        model.addAttribute("kategoriat", kategoriat);
 
         return "productlist";
     }
