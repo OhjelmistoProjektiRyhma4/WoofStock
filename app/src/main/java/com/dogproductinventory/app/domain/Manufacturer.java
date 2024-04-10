@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -19,7 +21,13 @@ public class Manufacturer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name, address, phone;
+
+	@NotBlank
+	@Size(max = 30)
+	private String name, address;
+
+	@NotBlank
+	private String phone;
 
 	public Manufacturer(String name, String address, String phone) {
 		super();

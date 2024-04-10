@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
@@ -39,9 +41,13 @@ public class ManufacturerController {
 
     // tallentaa tiedot repositoryyn ja palaa sivulle joka näyttää listan
     @PostMapping("/savemanufacturer")
-    public String saveManufacturer(@ModelAttribute Manufacturer manu) {
-        manurepository.save(manu);
+    public String saveManufacturer(@Valid @ModelAttribute("manufacturer") Manufacturer manu, BindingResult result) {
+        if (result.hasErrors()) {
+            return "manufacturerform";
+        } else {
+            manurepository.save(manu);
         return "redirect:/manufacturerlist";
+        }
     }
 
     @GetMapping("/deletemanufacturer/{id}")
