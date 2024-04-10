@@ -8,14 +8,23 @@
 </head>
 <body>
     <h3>all products</h3>
+    <br>
 
+    <label for=""> Etsi vaatekappaleen perusteella</label>
+        <select name="" id="" onchange="window.location.href = this.value;" style="margin: 10px;" >
+            <option th:value="${'/productlist'}">...</option>
+            <option th:each="vaate : ${vaatekappaleet}" th:value="${'/clothes/' + vaate}" th:text="${vaate}">aa</option>
+        </select>
+    
+
+    <hr>
     <table>
         <tr>
             <th>name</th>
             <th>color</th>
             <th>price</th>
         </tr>
-        <tr th:each="product : ${products}"> 
+        <tr th:each="product : ${productlist}"> 
             <td th:text="${product.name}"></td>
             <td th:text="${product.color}"></td>
             <td th:text="${product.price}"></td>
