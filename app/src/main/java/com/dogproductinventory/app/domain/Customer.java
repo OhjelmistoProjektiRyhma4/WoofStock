@@ -13,7 +13,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long customerId;
+    private long id;
 
     @NotBlank
     @Size(max = 20)
@@ -29,6 +29,7 @@ public class Customer {
     }
 
     public Customer(String firstName, String lastName, String phone, String email, String address, String postcode) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -37,12 +38,12 @@ public class Customer {
         this.postcode = postcode;
     }
 
-    public long getCustomerId() {
-        return customerId;
+    public long getId() {
+        return id;
     }
 
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -95,8 +96,8 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", phone="
-                + phone + ", email=" + email + ", address=" + address + ", postcode=" + postcode + "]";
+        return "Customer [customerId=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone="
+        + phone + ", email=" + email + ", address=" + address + ", postcode=" + postcode + "]";
     }
 
 }

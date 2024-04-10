@@ -55,6 +55,4 @@ public class ManufacturerController {
         manurepository.deleteById(manuId);
         return "redirect:/manufacturerlist";
     }
-	 
-
 }

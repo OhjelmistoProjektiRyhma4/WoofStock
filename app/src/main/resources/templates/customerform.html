@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>
+
+        <h3>add/edit customers</h3>
+    </div>
+    
+    <form action="#" method="post" th:action="@{/savecustomer}" th:object="${customer}">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="text" th:field="*{firstName}" placeholder="firstName" required>
+        <input type="text" th:field="*{lastName}" placeholder="lastName" required>
+        <input type="text" th:field="*{phone}" placeholder="phone" required>
+        <input type="text" th:field="*{address}" placeholder="address" required>
+        <input type="text" th:field="*{postcode}" placeholder="postcode" required>
+        <input type="text" th:field="*{email}" placeholder="email" required>
+        <input type="reset" value="reset"><button>submit</button>
+    </form>
+    
+    <a th:href="@{/customerlist}">customerlist</a>
+</body>
+</html>

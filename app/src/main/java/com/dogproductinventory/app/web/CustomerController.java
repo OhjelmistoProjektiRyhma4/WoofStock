@@ -22,7 +22,7 @@ public class CustomerController {
     // listaa kaikki asiakkaat
     @GetMapping("/customerlist")
     public String customerList(Model model) {
-        model.addAttribute("customerlist", customerRepository.findAll());
+        model.addAttribute("customers", customerRepository.findAll());
         return "customerlist";
     }
 
