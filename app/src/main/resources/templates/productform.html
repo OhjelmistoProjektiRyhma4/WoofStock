@@ -15,6 +15,13 @@
         <input type="text" th:field="*{price}" placeholder="price" required>
         <input type="text" th:field="*{size}" placeholder="size" required>
         <!--Manufacturer puuttuu täältä -->
+        <!--    Työn alla
+        <select th:field="*{manu}" class="form-control" required>
+            <option value="" disabled selected hidden>Select manufacturer</option>
+            <option th:each="manufacturer : ${manu}" th:value="$manufacturer.id" th:text="${manufacturer.name}"></option>
+        </select>
+        -->
+
         <input type="reset" value="reset"><button>submit</button>
     </form>
     <a th:href="@{/}">etusivu </a>

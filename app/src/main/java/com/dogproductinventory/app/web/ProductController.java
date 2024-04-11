@@ -17,6 +17,7 @@ import org.springframework.validation.BindingResult;
 
 import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.Manufacturer;
+import com.dogproductinventory.app.domain.ManufacturerRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 
 @Controller
@@ -24,6 +25,10 @@ public class ProductController {
 
     @Autowired
     private DogProductRepository productrepository;
+
+    @Autowired
+    private ManufacturerRepository manurepository;
+
 
     @GetMapping("/")
     public String etuSivu() {
@@ -50,6 +55,7 @@ public class ProductController {
     @GetMapping("/addproduct")
     public String addProduct(Model model) {
         model.addAttribute("product", new DogProduct());
+        model.addAttribute("manu", manurepository.findAll());
         return "productform";
     }
 
@@ -57,6 +63,7 @@ public class ProductController {
     @GetMapping("/editproduct/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         model.addAttribute("product", productrepository.findById(productId));
+        model.addAttribute("manu", manurepository.findAll());
         return "productform";
     }
 
