@@ -55,7 +55,7 @@ public class ProductController {
     @GetMapping("/addproduct")
     public String addProduct(Model model) {
         model.addAttribute("product", new DogProduct());
-        model.addAttribute("manu", manurepository.findAll());
+        model.addAttribute("manufacturer", manurepository.findAll());
         return "productform";
     }
 
@@ -63,7 +63,7 @@ public class ProductController {
     @GetMapping("/editproduct/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         model.addAttribute("product", productrepository.findById(productId));
-        model.addAttribute("manu", manurepository.findAll());
+        model.addAttribute("manufacturer", manurepository.findAll());
         return "productform";
     }
 
