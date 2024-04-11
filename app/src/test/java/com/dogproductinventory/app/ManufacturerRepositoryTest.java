@@ -28,7 +28,7 @@ public class ManufacturerRepositoryTest {
     public void deleteManufacturerTest() {
         assertThat(manufacturerRepository.findById(3L)).isNotNull();
 
-        manufacturerRepository.deleteById(2L);
+        manufacturerRepository.deleteById(3L);
         assertThat(manufacturerRepository.findById(3L)).isEmpty();
     }
 }

@@ -30,7 +30,8 @@
             <td th:text="${product.price}"></td>
 
             <td><a th:href="@{/editproduct/{id}(id=${product.productId})}"  class="btn btn-success">edit</a></td>
-			<td><a th:href="@{/deleteproduct/{id}(id=${product.productId})}" class="btn btn-danger"onclick="return confirm('Are you sure you want to delete this?')">delete</a></td>
+			<td><a th:href="@{/deleteproduct/{id}(id=${product.productId})}" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to delete this?')">delete</a></td>
         </tr>
     </table>
     <br>
