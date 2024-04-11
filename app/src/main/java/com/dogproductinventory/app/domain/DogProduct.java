@@ -14,8 +14,9 @@ public class DogProduct {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long productId;
-	private String name, color;
+	private String name, color, size;
 	private int price;
+	
 	
 	// Default constructor
 	public DogProduct() {
@@ -29,12 +30,13 @@ public class DogProduct {
 	private Manufacturer manufacturer;
 
 
-	public DogProduct(String name, String color, int price, Manufacturer manufacturer) {
+	public DogProduct(String name, String color, int price, String size, Manufacturer manufacturer) {
 		super();
 		this.name = name;
 		this.color = color;
 		this.price = price;
 		this.manufacturer = manufacturer;
+		this.size = size;
 	}
 
 
@@ -79,4 +81,14 @@ public class DogProduct {
 		this.price = price;
 	}
 
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	
 }

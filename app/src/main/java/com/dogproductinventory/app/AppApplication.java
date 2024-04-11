@@ -38,11 +38,11 @@ public class AppApplication {
 			manurepository.save(m2);
 
 			// lisätään muutama tuote ja tuotteille myös valmistaja
-			DogProduct product1 = new DogProduct("takki", "punainen", 4, m1);
+			DogProduct product1 = new DogProduct("takki", "punainen", 4, "XL", m1);
 			productrepository.save(product1);
-			DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8, m2);
+			DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8, "S", m2);
 			productrepository.save(product2);
-			DogProduct product3 = new DogProduct("takki", "vihreä", 9, m1);
+			DogProduct product3 = new DogProduct("takki", "vihreä", 9, "M",m1);
 			productrepository.save(product3);
 
 			log.info("all products");
