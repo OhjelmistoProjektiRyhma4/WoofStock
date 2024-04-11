@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
     <title>DogStore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -10,16 +10,23 @@
     <h3>Clothes</h3>
     
     
-    <table>
+    <table class="table table-striped">
         <tr>
+
             <td>name</td>
             <td>color</td>
             <td>price</td>
             <td>size</td>
             <td>manufacturer</td>
+
+            <th>name</th>
+            <th>color</th>
+            <th>price</th>
+            <th>manufacturer</th>
+
         </tr>
         <tr th:each="vaate : ${vaatekappaleet}"> 
-            <th th:text="${vaate.name}" ></th>
+            <td th:text="${vaate.name}" ></td>
             <td th:text="${vaate.color}"></td>
             <td th:text="${vaate.price}"></td>
             <td th:text="${vaate.size}"></td>
