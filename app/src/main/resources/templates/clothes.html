@@ -15,12 +15,14 @@
             <td>name</td>
             <td>color</td>
             <td>price</td>
+            <td>size</td>
             <td>manufacturer</td>
         </tr>
         <tr th:each="vaate : ${vaatekappaleet}"> 
             <th th:text="${vaate.name}" ></th>
             <td th:text="${vaate.color}"></td>
             <td th:text="${vaate.price}"></td>
+            <td th:text="${vaate.size}"></td>
             <td th:text="${vaate.manufacturer.name}"></td>
             
         </tr>
