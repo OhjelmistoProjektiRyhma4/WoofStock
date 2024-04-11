@@ -23,6 +23,8 @@
             <th>name</th>
             <th>color</th>
             <th>price</th>
+            <th>size</th>
+            <th>manufacturer</th>
             <th></th>
             <th></th>
         </tr>
@@ -30,7 +32,11 @@
             <td th:text="${product.name}"></td>
             <td th:text="${product.color}"></td>
             <td th:text="${product.price}"></td>
-            <td class="btn btn-success"> <a th:href="@{/editproduct/{id}(id=${product.productId})}"  class="btn btn-success">edit</a></td>
+            
+            <td th:text="${product.size}"></td>
+            <td th:text="${product.manufacturer.name}"></td>
+
+            <td><a th:href="@{/editproduct/{id}(id=${product.productId})}"  class="btn btn-success">edit</a></td>
 			<td><a th:href="@{/deleteproduct/{id}(id=${product.productId})}" class="btn btn-danger"
                 onclick="return confirm('Are you sure you want to delete this?')"><button class="btn btn-danger">delete</button></a></td>
         </tr>
