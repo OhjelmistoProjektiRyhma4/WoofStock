@@ -44,6 +44,4 @@ public class ProductRestController {
 		editedDogProduct.setProductId(id);
 		return repository.save(editedDogProduct);
 	}
-
-
 }
