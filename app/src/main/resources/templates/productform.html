@@ -13,8 +13,15 @@
         <input type="text" th:field="*{name}" placeholder="name" required>
         <input type="text" th:field="*{color}" placeholder="color" required>
         <input type="text" th:field="*{price}" placeholder="price" required>
-        <input type="text" th:field="*{size}" placeholder="size" required>
-        <!--Manufacturer puuttuu täältä -->
+
+        <select th:field="*{size}" class="form-control" required>
+            <option value="" disabled selected hidden>Select size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
         
         <select th:field="*{manufacturer}" class="form-control" required>
             <option value="" disabled selected hidden>Select manufacturer</option>
