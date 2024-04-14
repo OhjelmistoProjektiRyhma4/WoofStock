@@ -3,6 +3,7 @@ package com.dogproductinventory.app.web;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -44,4 +45,9 @@ public class ProductRestController {
 		editedDogProduct.setProductId(id);
 		return repository.save(editedDogProduct);
 	}
+//	Delete dogproduct
+	@DeleteMapping("/dogproducts/{id}")
+	void deleteDogProduct(@PathVariable Long id) {
+	    repository.deleteById(id);
+	  }
 }

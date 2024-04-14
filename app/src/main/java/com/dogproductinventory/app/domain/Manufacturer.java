@@ -22,7 +22,7 @@ public class Manufacturer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@NotBlank
+	@NotBlank()
 	@Size(max = 30)
 	private String name, address;
 
