@@ -26,10 +26,10 @@ public class ProductController {
     @Autowired
     private DogProductRepository productrepository;
 
-                @Autowired
+    @Autowired
     private ManufacturerRepository manurepository;
 
-    @GetMapping("/")
+    @GetMapping("/") //TODO: Loogisin sijainti metodille?
     public String etuSivu() {
         return "index";
     }
