@@ -10,6 +10,7 @@
 
     <title>DogStore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<<<<<<< Updated upstream
   </head>
   <body>
     <h3>add product</h3>
@@ -23,6 +24,19 @@
       <input type="text" th:field="*{name}" placeholder="name" required />
       <input type="text" th:field="*{color}" placeholder="color" required />
       <input type="text" th:field="*{price}" placeholder="price" required />
+=======
+</head>
+<body>
+    <div>
+        <h3>add/edit product</h3>
+    </div>
+    
+    <form action="#" method="post" th:action="@{/saveproduct}" th:object="${product}">
+        <input type="hidden" th:field="*{productId}"/>
+        <input type="text" th:field="*{name}" placeholder="name" required>
+        <input type="text" th:field="*{color}" placeholder="color" required>
+        <input type="text" th:field="*{price}" placeholder="price" required>
+>>>>>>> Stashed changes
 
       <select th:field="*{size}" required>
         <option value="" disabled selected hidden>Select size</option>
