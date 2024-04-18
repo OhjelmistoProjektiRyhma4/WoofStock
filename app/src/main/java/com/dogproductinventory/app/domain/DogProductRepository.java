@@ -12,7 +12,7 @@ public interface DogProductRepository extends CrudRepository<DogProduct, Long> {
     //List<DogProduct> findByType(String type);
 	
 	//find dog products by name
-	List<DogProduct> findByNae(String name);
+	List<DogProduct> findByName(String name);
     
 
 }
