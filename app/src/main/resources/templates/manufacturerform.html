@@ -23,12 +23,15 @@
     >
       <input type="hidden" th:field="*{id}" />
       <input type="text" th:field="*{name}" placeholder="name" required />
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
       <input type="text" th:field="*{address}" placeholder="address" required />
+      <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Error</span>
       <input type="text" th:field="*{phone}" placeholder="phone" required />
-      <input type="reset" value="submit" class="btn btn-danger" />
-      <input type="submit" value="submit" class="btn btn-success" />
+      <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</span>
+
+      <input type="reset" value="Reset" class="btn btn-danger" />
+      <input type="submit" value="Submit" class="btn btn-success" />
+      <input type="button" value="Cancel" onclick="window.location.href='/manufacturerlist'" class="btn btn-danger">
     </form>
-    <br>
-    <a th:href="@{/manufacturerlist}" class="btn btn-dark">Cancel</a>
   </body>
 </html>
