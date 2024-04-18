@@ -22,11 +22,15 @@ public class Manufacturer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@NotBlank()
-	@Size(max = 30)
-	private String name, address;
+	@NotBlank(message = "Can't be only blank spaces!")
+	@Size(max = 30, message = "Max 30 characters!")
+	private String name;
+	
+	@NotBlank(message = "Can't be only blank spaces!")
+	@Size(max = 40, message = "Max 40 characters!")
+	private String address;
 
-	@NotBlank
+	@NotBlank(message = "Can't be only blank spaces!")
 	private String phone;
 
 	public Manufacturer(String name, String address, String phone) {

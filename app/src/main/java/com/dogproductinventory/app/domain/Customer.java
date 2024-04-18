@@ -15,15 +15,15 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(message = "Can't contain only blank spaces!")
+    @Size(max = 20, message = "Max 20 characters!")
     private String firstName, lastName;
     
-    @NotBlank
+    @NotBlank(message = "Can't contain only blank spaces!")
     private String phone, address, postcode;
 
-    @Email
-    @NotBlank
+    @Email(message = "Must be valid email address!")
+    @NotBlank(message = "Can't contain only blank spaces!")
     private String email;
 
     public Customer() {

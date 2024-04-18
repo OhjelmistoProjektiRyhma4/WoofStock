@@ -14,9 +14,10 @@ public class DogProduct {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long productId;
+
 	private String name, color, size;
+
 	private int price;
-	
 	
 	// Default constructor
 	public DogProduct() {
