@@ -1,25 +1,34 @@
-
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/css/css/bootstrap.min.css"
+      th:href="@{/css/css/bootstrap.min.css}"
+    />
     <title>DogStore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
+  </head>
+  <body>
     <div>
-
-        <h3>add manufacturer</h3>
+      <h3>add manufacturer</h3>
     </div>
-    
-    <form action="#" method="post" th:action="@{/savemanufacturer}" th:object="${manufacturer}">
-        <input type="hidden" th:field="*{id}"/>
-        <input type="text" th:field="*{name}" placeholder="name" required>
-        <input type="text" th:field="*{address}" placeholder="address" required>
-        <input type="text" th:field="*{phone}" placeholder="phone" required>
-        <input type="reset" value="reset"><button>submit</button>
+
+    <form
+      action="#"
+      method="post"
+      th:action="@{/savemanufacturer}"
+      th:object="${manufacturer}"
+    >
+      <input type="hidden" th:field="*{id}" />
+      <input type="text" th:field="*{name}" placeholder="name" required />
+      <input type="text" th:field="*{address}" placeholder="address" required />
+      <input type="text" th:field="*{phone}" placeholder="phone" required />
+      <input type="reset" value="submit" class="btn btn-danger" />
+      <input type="submit" value="submit" class="btn btn-success" />
     </form>
-    
-    <a th:href="@{/}">etusivu </a>
-</body>
+
+    <a th:href="@{/}" class="btn btn-dark">etusivu </a>
+  </body>
 </html>

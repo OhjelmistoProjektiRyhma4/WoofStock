@@ -26,9 +26,8 @@ public class ProductController {
     @Autowired
     private DogProductRepository productrepository;
 
-    @Autowired
+                @Autowired
     private ManufacturerRepository manurepository;
-
 
     @GetMapping("/")
     public String etuSivu() {
