@@ -19,6 +19,7 @@ public class Customer {
     @Size(max = 20)
     private String firstName, lastName;
     
+    @NotBlank
     private String phone, address, postcode;
 
     @Email
