@@ -16,6 +16,8 @@ import com.dogproductinventory.app.domain.DogProduct;
 import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
+import com.dogproductinventory.app.domain.ProductType;
+import com.dogproductinventory.app.domain.ProductTypeRepository;
 
 @SpringBootApplication
 public class AppApplication {
@@ -28,7 +30,7 @@ public class AppApplication {
 
 	@Bean
 	public CommandLineRunner DogStore(ManufacturerRepository manurepository, DogProductRepository productrepository,
-			CustomerRepository customerRepo) {
+			CustomerRepository customerRepo, ProductTypeRepository typeRepository) {
 		return (args) -> {
 
 			// lisätään muutama valmistaja
@@ -36,13 +38,21 @@ public class AppApplication {
 			manurepository.save(m1);
 			Manufacturer m2 = new Manufacturer("testi2", "osoite2", "1254455675");
 			manurepository.save(m2);
+			
+			//lisätään tuotteen tyypit
+			ProductType t1 = new ProductType("Vaate");
+			typeRepository.save(t1);
+			ProductType t2 = new ProductType("Lelu");
+			typeRepository.save(t2);
+			
+			
 
-			// lisätään muutama tuote ja tuotteille myös valmistaja
-			DogProduct product1 = new DogProduct("takki", "punainen", 4, "XL", m1);
+			// lisätään muutama tuote ja tuotteille myös valmistaja ja tyyppi
+			DogProduct product1 = new DogProduct("takki", "punainen", 4, "L", 40, m1,t1);
 			productrepository.save(product1);
-			DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8, "S", m2);
+			DogProduct product2 = new DogProduct("kaulapanta", "sininen", 8, "S", 50, m2,t1);
 			productrepository.save(product2);
-			DogProduct product3 = new DogProduct("takki", "vihreä", 9, "M",m1);
+			DogProduct product3 = new DogProduct("takki", "vihreä", 9, "M", 10 ,m1,t1);
 			productrepository.save(product3);
 
 			log.info("all products");

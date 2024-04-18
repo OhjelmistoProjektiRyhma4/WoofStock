@@ -27,8 +27,6 @@
         <option value="S">S</option>
         <option value="M">M</option>
         <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
       </select>
 
       <select th:field="*{manufacturer}" required>
@@ -39,6 +37,7 @@
           th:text="${manufacturer.name}"
         ></option>
       </select>
+      
 
       <input type="reset" value="reset" class="btn btn-danger" />
       <input type="submit" value="submit" class="btn btn-success" />

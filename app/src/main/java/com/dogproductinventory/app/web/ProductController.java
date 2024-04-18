@@ -28,6 +28,7 @@ public class ProductController {
 
     @Autowired
     private ManufacturerRepository manurepository;
+    
 
     @GetMapping("/") //TODO: Loogisin sijainti metodille?
     public String etuSivu() {

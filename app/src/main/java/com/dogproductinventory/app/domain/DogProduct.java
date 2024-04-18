@@ -18,6 +18,7 @@ public class DogProduct {
 	private String name, color, size;
 
 	private int price;
+	private int stock;
 	
 	// Default constructor
 	public DogProduct() {
@@ -29,25 +30,21 @@ public class DogProduct {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "manufacturer")
 	private Manufacturer manufacturer;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "type")
+	private ProductType type;
 
-
-	public DogProduct(String name, String color, int price, String size, Manufacturer manufacturer) {
+	public DogProduct(String name, String color,  int price, String size, int stock, Manufacturer manufacturer,
+			ProductType type) {
 		super();
 		this.name = name;
 		this.color = color;
-		this.price = price;
-		this.manufacturer = manufacturer;
 		this.size = size;
-	}
-
-
-	// Valmistajan getterit ja setterit
-	public Manufacturer getManufacturer() {
-		return manufacturer;
-	}
-
-	public void setManufacturer(Manufacturer manufacturer) {
+		this.price = price;
+		this.stock = stock;
 		this.manufacturer = manufacturer;
+		this.type = type;
 	}
 
 	public long getProductId() {
@@ -74,6 +71,14 @@ public class DogProduct {
 		this.color = color;
 	}
 
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -82,14 +87,60 @@ public class DogProduct {
 		this.price = price;
 	}
 
-
-	public String getSize() {
-		return size;
+	public int getStock() {
+		return stock;
 	}
 
-	public void setSize(String size) {
-		this.size = size;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
+
+	public Manufacturer getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(Manufacturer manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+
+	public ProductType getType() {
+		return type;
+	}
+
+	public void setType(ProductType type) {
+		this.type = type;
+	}
+	
+	
+	
+	
+
+
+
+
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+
+
+	
+	
+	
+	
+
+
+	
+	
+
+
+
 
 	
 }
