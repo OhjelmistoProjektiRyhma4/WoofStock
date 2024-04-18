@@ -7,8 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface ManufacturerRepository extends CrudRepository<Manufacturer, Long> {
-	
-	// fetch manufacturers by name
-    List<Manufacturer> findByName(String name);
+
 
 }
