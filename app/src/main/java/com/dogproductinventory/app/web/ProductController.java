@@ -1,6 +1,5 @@
 package com.dogproductinventory.app.web;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +15,6 @@ import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
 import com.dogproductinventory.app.domain.DogProductRepository;
-import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 

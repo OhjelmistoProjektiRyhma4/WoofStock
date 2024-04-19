@@ -17,10 +17,13 @@
     </div>
     
     <form action="#" method="post" th:action="@{/saveproduct}" th:object="${product}">
-        <input type="hidden" th:field="*{productId}"/>
-        <input type="text" th:field="*{name}" placeholder="name" required>
-        <input type="text" th:field="*{color}" placeholder="color" required>
-        <input type="text" th:field="*{price}" placeholder="price" required>
+      <input type="hidden" th:field="*{productId}"/>
+      <input type="text" th:field="*{name}" placeholder="name" required>
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
+      <input type="text" th:field="*{color}" placeholder="color" required>
+      <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Error</span>
+      <input type="text" th:field="*{price}" placeholder="price" required>
+      <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</span>
 
       <select th:field="*{size}" required>
         <option value="" disabled selected hidden>Select size</option>
@@ -28,6 +31,7 @@
         <option value="M">M</option>
         <option value="L">L</option>
       </select>
+      <span th:if="${#fields.hasErrors('size')}" th:errors="*{size}">Error</span>
 
       <select th:field="*{manufacturer}" required>
         <option value="" disabled selected hidden>Select manufacturer</option>

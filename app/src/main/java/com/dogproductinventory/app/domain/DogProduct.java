@@ -7,6 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 public class DogProduct {
@@ -15,9 +19,21 @@ public class DogProduct {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long productId;
 
-	private String name, color, size;
+	@NotBlank(message = "Can't contain only blank spaces!")
+	@Size(max = 40, message = "Max 40 characters!")
+	private String name; 
+	
+	@NotBlank(message = "Can't contain only blank spaces!")
+	@Size(max = 40 , message = "Max 40 characters!")
+	private String color;
+	
+	@Size(min = 1, max = 3, message = "Needs to be presented with min 1 and max 3 letters!")
+	private String size;
 
+	@Positive(message = "Price can't be negative or zero!")
 	private int price;
+
+	@PositiveOrZero(message = "Stock can't go under zero!")
 	private int stock;
 	
 	// Default constructor
