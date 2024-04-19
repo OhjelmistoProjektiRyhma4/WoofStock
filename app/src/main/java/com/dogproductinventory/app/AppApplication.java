@@ -34,9 +34,9 @@ public class AppApplication {
 		return (args) -> {
 
 			// lisätään muutama valmistaja
-			Manufacturer m1 = new Manufacturer("testi1", "osoite1", "12544");
+			Manufacturer m1 = new Manufacturer("testi1", "osoite1", "+44 20 1234 5678");
 			manurepository.save(m1);
-			Manufacturer m2 = new Manufacturer("testi2", "osoite2", "1254455675");
+			Manufacturer m2 = new Manufacturer("testi2", "osoite2", "+49 30 12345678");
 			manurepository.save(m2);
 			
 			//lisätään tuotteen tyypit
@@ -61,8 +61,8 @@ public class AppApplication {
 			}
 
 			List<Customer> customers = Arrays.asList(
-					new Customer("matti", "meikäläinen", "040123123", "matti@gmail.com", "kotitie123", "02940"),
-					new Customer("tarja", "koskinen", "05012866", "tarja@gmail.com", "tarjankoti123", "00520"));
+					new Customer("matti", "meikäläinen", "+49 30 12345678", "matti@gmail.com", "kotitie123", "02940"),
+					new Customer("tarja", "koskinen", "+49 30 12345678", "tarja@gmail.com", "tarjankoti123", "00520"));
 			customers.forEach(customerRepo::save);
 
 			log.info("all customers");

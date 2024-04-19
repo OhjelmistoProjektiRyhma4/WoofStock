@@ -19,8 +19,15 @@ public class Customer {
     @Size(max = 20, message = "Max 20 characters!")
     private String firstName, lastName;
     
+    @Size(max = 50, message = "Max 50 characters!")
     @NotBlank(message = "Can't contain only blank spaces!")
-    private String phone, address, postcode;
+    private String address;
+    
+    @Postcode
+    private String postcode;
+
+    @PhoneNumber
+    private String phone;
 
     @Email(message = "Must be valid email address!")
     @NotBlank(message = "Can't contain only blank spaces!")
