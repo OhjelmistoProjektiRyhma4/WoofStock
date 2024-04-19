@@ -67,8 +67,9 @@ public class ProductController {
 
     // tallentaa tiedot repositoryyn ja palaa sivulle joka näyttää listan
     @PostMapping("/saveproduct")
-    public String saveProduct(@Valid @ModelAttribute("product") DogProduct produ, BindingResult result) {
+    public String saveProduct(@Valid @ModelAttribute("product") DogProduct produ, BindingResult result, Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("manufacturer", manurepository.findAll());
             return "productform";
         } else {
             productrepository.save(produ);
