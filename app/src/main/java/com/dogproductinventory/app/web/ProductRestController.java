@@ -18,36 +18,38 @@ import com.dogproductinventory.app.domain.DogProductRepository;
 
 @RestController
 public class ProductRestController {
-	
+
 	@Autowired
 	private DogProductRepository repository;
-	
-//	Get all dogproducts
-    @RequestMapping("/dogproducts")
-    public Iterable<DogProduct> getDogProducts() {
-        return repository.findAll();
-    }
-//  Find dogproduct by id
-	@RequestMapping(value="/dogproducts/{id}", method=RequestMethod.GET)
+
+	// Get all dogproducts
+	@RequestMapping("/dogproducts")
+	public Iterable<DogProduct> getDogProducts() {
+		return repository.findAll();
+	}
+
+	// Find dogproduct by id
+	@RequestMapping(value = "/dogproducts/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<DogProduct> getDogProductById(@PathVariable("id") Long id) {
 		return repository.findById(id);
 	}
-    
-//  Add new dogproduct
+
+	// Add new dogproduct
 	@PostMapping("/dogproducts")
 	DogProduct newDogProduct(@RequestBody DogProduct newDogProduct) {
 		return repository.save(newDogProduct);
 	}
 
-//  Edit dogproduct
+	// Edit dogproduct
 	@PutMapping("/dogproducts/{id}")
 	DogProduct editDogProduct(@RequestBody DogProduct editedDogProduct, @PathVariable Long id) {
 		editedDogProduct.setProductId(id);
 		return repository.save(editedDogProduct);
 	}
-//	Delete dogproduct
+
+	// Delete dogproduct
 	@DeleteMapping("/dogproducts/{id}")
 	void deleteDogProduct(@PathVariable Long id) {
-	    repository.deleteById(id);
-	  }
+		repository.deleteById(id);
+	}
 }
