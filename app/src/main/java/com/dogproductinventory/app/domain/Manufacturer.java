@@ -30,7 +30,7 @@ public class Manufacturer {
 	@Size(max = 40, message = "Max 40 characters!")
 	private String address;
 
-	@NotBlank(message = "Can't be only blank spaces!")
+	@PhoneNumber
 	private String phone;
 
 	public Manufacturer(String name, String address, String phone) {

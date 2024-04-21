@@ -10,28 +10,28 @@
 
     <title>DogStore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  </head>
-  <body>
-    <h3>add product</h3>
-    <form
-      action="#"
-      method="post"
-      th:action="@{/saveproduct}"
-      th:object="${product}"
-    >
-      <input type="hidden" th:field="*{productId}" />
-      <input type="text" th:field="*{name}" placeholder="name" required />
-      <input type="text" th:field="*{color}" placeholder="color" required />
-      <input type="text" th:field="*{price}" placeholder="price" required />
+</head>
+<body>
+    <div>
+        <h3>add/edit product</h3>
+    </div>
+    
+    <form action="#" method="post" th:action="@{/saveproduct}" th:object="${product}">
+      <input type="hidden" th:field="*{productId}"/>
+      <input type="text" th:field="*{name}" placeholder="name" required>
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
+      <input type="text" th:field="*{color}" placeholder="color" required>
+      <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Error</span>
+      <input type="text" th:field="*{price}" placeholder="price" required>
+      <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</span>
 
       <select th:field="*{size}" required>
         <option value="" disabled selected hidden>Select size</option>
         <option value="S">S</option>
         <option value="M">M</option>
         <option value="L">L</option>
-        <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
       </select>
+      <span th:if="${#fields.hasErrors('size')}" th:errors="*{size}">Error</span>
 
       <select th:field="*{manufacturer}" required>
         <option value="" disabled selected hidden>Select manufacturer</option>
@@ -41,11 +41,11 @@
           th:text="${manufacturer.name}"
         ></option>
       </select>
+      
 
       <input type="reset" value="reset" class="btn btn-danger" />
       <input type="submit" value="submit" class="btn btn-success" />
+      <input type="button" value="Cancel" onclick="window.location.href='/productlist'" class="btn btn-danger">
     </form>
-    <br />
-    <a th:href="@{/}"><button class="btn btn-dark">etusivu</button> </a>
   </body>
 </html>

@@ -9,9 +9,10 @@ import java.util.List;
 public interface DogProductRepository extends CrudRepository<DogProduct, Long> {
 
 	// fetch dog products by name
-    List<DogProduct> findByName(String name);
+    //List<DogProduct> findByType(String type);
+	
+	//find dog products by name
+	List<DogProduct> findByName(String name);
     
-    // fetch dog products by color
-    List<DogProduct> findByColor(String color);
 
 }

@@ -1,6 +1,5 @@
 package com.dogproductinventory.app.web;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +15,6 @@ import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
 import com.dogproductinventory.app.domain.DogProductRepository;
-import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 
@@ -26,10 +24,11 @@ public class ProductController {
     @Autowired
     private DogProductRepository productrepository;
 
-                @Autowired
+    @Autowired
     private ManufacturerRepository manurepository;
+    
 
-    @GetMapping("/")
+    @GetMapping("/") //TODO: Loogisin sijainti metodille?
     public String etuSivu() {
         return "index";
     }
@@ -68,8 +67,9 @@ public class ProductController {
 
     // tallentaa tiedot repositoryyn ja palaa sivulle joka näyttää listan
     @PostMapping("/saveproduct")
-    public String saveProduct(@Valid @ModelAttribute("product") DogProduct produ, BindingResult result) {
+    public String saveProduct(@Valid @ModelAttribute("product") DogProduct produ, BindingResult result, Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("manufacturer", manurepository.findAll());
             return "productform";
         } else {
             productrepository.save(produ);
