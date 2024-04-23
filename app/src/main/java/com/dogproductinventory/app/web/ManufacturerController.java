@@ -73,15 +73,11 @@ public class ManufacturerController {
     public String getManuProducts(@PathVariable("id") Long manuId, Model model) {
 
 
-        
         Manufacturer manufacturer = manurepository.findById(manuId).orElse(null);
-
         List<DogProduct> products = produrepository.findByManufacturerId(manufacturer.getId()); 
-        // Assuming findByManufacturerId exists in your ProductRepository
-        //produrepository.findByManufacturerId(manufacturer.getId());
-        //manurepository.findAll();
+        
         model.addAttribute("products", products);
-        model.addAttribute("manufacturer", manurepository.findById(manuId));
+        model.addAttribute("manufacturer", manufacturer);
 
         return "manufacturerproducts";
     }
