@@ -15,12 +15,18 @@
             <th>name</th>
             <th>address</th>
             <th>phone</th>
+            <th>products</th>
             <th colspan="2"></th>
         </tr>
         <tr th:each="manufacturer : ${manufacturers}"> 
             <td th:text="${manufacturer.name}"></td>
             <td th:text="${manufacturer.address}"></td>
             <td th:text="${manufacturer.phone}"></td>
+            <td>
+                <a th:href="@{/manufacturerproducts/{id}(id=${manufacturer.id})}"  class="btn btn-info">
+                    <span th:text="${manufacturer.name} + ' products'"></span>
+                </a>
+            </td>
             
             <td>
                 <a th:href="@{/editmanufacturer/{id}(id=${manufacturer.id})}"  class="btn btn-success">

@@ -1,5 +1,7 @@
 package com.dogproductinventory.app.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,14 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
+import com.dogproductinventory.app.domain.DogProduct;
+import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class ManufacturerController {
 
     @Autowired
     private ManufacturerRepository manurepository;
+
+
+    @Autowired
+    private DogProductRepository produrepository;
+    //manufacturer product listiä varten ^^
+
 
     // listaa kaikki valmistajat
     @GetMapping("/manufacturerlist")
@@ -54,5 +66,23 @@ public class ManufacturerController {
     public String deleteManufacturer(@PathVariable("id") Long manuId) {
         manurepository.deleteById(manuId);
         return "redirect:/manufacturerlist";
+    }
+
+
+    @GetMapping("/manufacturerproducts/{id}")
+    public String getManuProducts(@PathVariable("id") Long manuId, Model model) {
+
+
+        
+        Manufacturer manufacturer = manurepository.findById(manuId).orElse(null);
+
+        List<DogProduct> products = produrepository.findByManufacturerId(manufacturer.getId()); 
+        // Assuming findByManufacturerId exists in your ProductRepository
+        //produrepository.findByManufacturerId(manufacturer.getId());
+        //manurepository.findAll();
+        model.addAttribute("products", products);
+        model.addAttribute("manufacturer", manurepository.findById(manuId));
+
+        return "manufacturerproducts";
     }
 }
