@@ -81,13 +81,4 @@ public class ProductController {
         productrepository.deleteById(produId);
         return "redirect:/productlist";
     }
-
-    @GetMapping("/clothes/{name}")
-    public String clothesBy(@PathVariable("name") String name, Model model) {
-
-        List<DogProduct> vaatteet = productrepository.findByName(name);
-        model.addAttribute("vaatekappaleet", vaatteet);
-        return "clothes";
-    }
-
 }

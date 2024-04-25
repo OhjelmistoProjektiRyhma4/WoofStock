@@ -10,14 +10,6 @@
     <h3>all products</h3>
     <br>
 
-    <label for=""> Etsi vaatekappaleen perusteella</label>
-        <select name="" id="" onchange="window.location.href = this.value;" style="margin: 10px;" >
-            <option th:value="${'/productlist'}">...</option>
-            <option th:each="kategoria : ${kategoriat}" th:value="${'/clothes/' + kategoria}" th:text="${kategoria}"></option>
-        </select>
-    
-
-    <hr>
     <table class="table table-striped">
         <tr>
             <th>name</th>
