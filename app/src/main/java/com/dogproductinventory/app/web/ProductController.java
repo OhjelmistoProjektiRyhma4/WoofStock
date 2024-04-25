@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 
 import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
+import com.dogproductinventory.app.domain.ProductTypeRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 
 @Controller
@@ -26,6 +27,9 @@ public class ProductController {
 
     @Autowired
     private ManufacturerRepository manurepository;
+
+    @Autowired
+    private ProductTypeRepository typeRepository;
     
 
     @GetMapping("/") //TODO: Loogisin sijainti metodille?
@@ -38,14 +42,6 @@ public class ProductController {
     public String productList(Model model) {
         model.addAttribute("productlist", productrepository.findAll());
 
-        // tuote kategoriat
-        Set<String> kategoriat = new HashSet<>();
-        for (DogProduct dogProduct : productrepository.findAll()) {
-            String tuote = dogProduct.getName();
-            kategoriat.add(tuote);
-        }
-        model.addAttribute("kategoriat", kategoriat);
-
         return "productlist";
     }
 
@@ -54,6 +50,7 @@ public class ProductController {
     public String addProduct(Model model) {
         model.addAttribute("product", new DogProduct());
         model.addAttribute("manufacturer", manurepository.findAll());
+        model.addAttribute("type", typeRepository.findAll());
         return "productform";
     }
 
@@ -62,6 +59,7 @@ public class ProductController {
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         model.addAttribute("product", productrepository.findById(productId));
         model.addAttribute("manufacturer", manurepository.findAll());
+        model.addAttribute("type", typeRepository.findAll());
         return "productform";
     }
 

@@ -41,8 +41,16 @@
           th:text="${manufacturer.name}"
         ></option>
       </select>
-      
 
+      <select th:field="*{type}" required>
+        <option value="" disabled selected hidden>Select manufacturer</option>
+        <option
+          th:each="type : ${type}"
+          th:value="${type.id}"
+          th:text="${type.type}"
+        ></option>
+      </select>
+      
       <input type="reset" value="reset" class="btn btn-danger" />
       <input type="submit" value="submit" class="btn btn-success" />
       <input type="button" value="Cancel" onclick="window.location.href='/productlist'" class="btn btn-danger">

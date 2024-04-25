@@ -25,8 +25,9 @@
             <th>price</th>
             <th>size</th>
             <th>manufacturer</th>
-            <th></th>
-            <th></th>
+            <th>type</th>
+            <th colspan="2"></th>
+            
         </tr>
         <tr th:each="product : ${productlist}"> 
             <td th:text="${product.name}"></td>
@@ -35,6 +36,7 @@
             
             <td th:text="${product.size}"></td>
             <td th:text="${product.manufacturer.name}"></td>
+            <td th:text="${product.type.type}"></td>
 
             <td><a th:href="@{/editproduct/{id}(id=${product.productId})}"  class="btn btn-success">edit</a></td>
 			<td><a th:href="@{/deleteproduct/{id}(id=${product.productId})}" class="btn btn-danger"

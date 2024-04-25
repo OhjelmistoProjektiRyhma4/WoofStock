@@ -20,7 +20,8 @@ public class ProductType {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private String type;
+	private String type; //Vaihda type nimeksi??? Nyt tulee oudosti luettavaa koodia 
+	//Thymeleafille kun <td th:text="${product.type.type}"></td>
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
