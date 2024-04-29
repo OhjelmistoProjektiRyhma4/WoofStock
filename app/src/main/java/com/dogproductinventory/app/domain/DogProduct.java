@@ -46,11 +46,11 @@ public class DogProduct {
 	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
 	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "manufacturer")
+	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "type")
+	@JoinColumn(name = "product_type_id")
 	private ProductType type;
 
 	public DogProduct(String name, String color,  int price, String size, int stock, Manufacturer manufacturer,
