@@ -1,23 +1,32 @@
 package com.dogproductinventory.app.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Email;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "firstname")
     @NotBlank(message = "Can't contain only blank spaces!")
     @Size(max = 20, message = "Max 20 characters!")
-    private String firstName, lastName;
+    private String firstName;
+    
+    @Column(name = "lastname")
+    @NotBlank(message = "Can't contain only blank spaces!")
+    @Size(max = 20, message = "Max 20 characters!")
+    private String lastName;
     
     @Size(max = 50, message = "Max 50 characters!")
     @NotBlank(message = "Can't contain only blank spaces!")
