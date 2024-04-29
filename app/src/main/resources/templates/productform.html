@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-        <h3>add/edit product</h3>
+        <h3>Add/Edit product</h3>
     </div>
     
     <form action="#" method="post" th:action="@{/saveproduct}" th:object="${product}">
@@ -22,7 +22,7 @@
       <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
       <input type="text" th:field="*{color}" placeholder="color" required>
       <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Error</span>
-      <input type="text" th:field="*{price}" placeholder="price" required>
+      <input type="number" th:field="*{price}" placeholder="price" required>
       <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</span>
 
       <select th:field="*{size}" required>
@@ -42,12 +42,15 @@
         ></option>
       </select>
 
+      <input type="number" th:field="*{stock}" placeholder="stock" min="0" required>
+      <span th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}">Error</span>
+
       <select th:field="*{type}" required>
-        <option value="" disabled selected hidden>Select manufacturer</option>
+        <option value="" disabled selected hidden>Select type</option>
         <option
           th:each="type : ${type}"
           th:value="${type.id}"
-          th:text="${type.type}"
+          th:text="${type.name}"
         ></option>
       </select>
       

@@ -20,8 +20,7 @@ public class ProductType {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private String type; //Vaihda type nimeksi??? Nyt tulee oudosti luettavaa koodia 
-	//Thymeleafille kun <td th:text="${product.type.type}"></td>
+	private String name;
 	
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
@@ -29,9 +28,9 @@ public class ProductType {
 
 	public ProductType() {}
 
-	public ProductType(String type) {
+	public ProductType(String name) {
 		super();
-		this.type = type;
+		this.name = name;
 	}
 
 	public long getId() {
@@ -42,12 +41,12 @@ public class ProductType {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public List<DogProduct> getDogProducts() {
@@ -57,11 +56,4 @@ public class ProductType {
 	public void setDogProducts(List<DogProduct> dogProducts) {
 		this.dogProducts = dogProducts;
 	}
-	
-	
-	
-	
-	
-	
-
 }

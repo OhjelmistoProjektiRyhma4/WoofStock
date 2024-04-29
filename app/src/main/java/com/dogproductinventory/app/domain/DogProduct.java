@@ -27,7 +27,7 @@ public class DogProduct {
 	@Size(max = 40 , message = "Max 40 characters!")
 	private String color;
 	
-	@Size(min = 1, max = 3, message = "Needs to be presented with min 1 and max 3 letters!")
+	@Size(min = 1, max = 2, message = "Needs to be presented with min 1 and max 2 letters!")
 	private String size;
 
 	@Positive(message = "Price can't be negative or zero!")
