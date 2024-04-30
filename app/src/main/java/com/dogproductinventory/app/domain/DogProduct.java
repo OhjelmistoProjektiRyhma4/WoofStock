@@ -1,5 +1,6 @@
 package com.dogproductinventory.app.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class DogProduct {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column (name="id")
 	private long productId;
 
 	@NotBlank(message = "Can't contain only blank spaces!")
@@ -46,10 +48,12 @@ public class DogProduct {
 	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
 	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa
 	@ManyToOne(fetch = FetchType.LAZY)
+	//manufacturer taulun id kentan nimi
 	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	//product_type taulun id kentan nimi
 	@JoinColumn(name = "product_type_id")
 	private ProductType type;
 
