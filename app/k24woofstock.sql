@@ -35,3 +35,9 @@ CREATE TABLE customer (
     postcode VARCHAR(20) NOT NULL
 );
 
+-- Pöytien lisäämisen jälkeen voidaan lisätä 
+-- tuotetyypit, koska ei ole tuotekontorlleria
+INSERT INTO product_type (name)
+VALUES 
+	('Vaate'),
+	('Lelu');
