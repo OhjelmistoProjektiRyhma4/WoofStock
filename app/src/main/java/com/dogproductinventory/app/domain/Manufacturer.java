@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -30,7 +31,7 @@ public class Manufacturer {
 	@Size(max = 40, message = "Max 40 characters!")
 	private String address;
 
-	@PhoneNumber
+	@Pattern(regexp = "^\\+(?:[0-9] ?){6,14}[0-9]$", message = "Invalid international phone number!")
 	private String phone;
 
 	public Manufacturer(String name, String address, String phone) {

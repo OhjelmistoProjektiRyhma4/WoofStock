@@ -16,6 +16,7 @@
             <th>Color</th>
             <th>Price</th>
             <th>Size</th>
+            <th>Stock</th>
             <th>Type</th>
             <th colspan="2"></th>
         </tr>
@@ -24,7 +25,8 @@
             <td th:text="${product.color}"></td>
             <td th:text="${product.price}"></td>
             <td th:text="${product.size}"></td>
-            <td th:text="${product.type.type}"></td>
+            <td th:text="${product.stock}"></td>
+            <td th:text="${product.type.name}"></td>
         </tr>
     </table>
            

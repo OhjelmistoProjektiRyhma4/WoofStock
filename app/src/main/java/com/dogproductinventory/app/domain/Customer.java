@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Email;
 
@@ -32,10 +33,10 @@ public class Customer {
     @NotBlank(message = "Can't contain only blank spaces!")
     private String address;
     
-    @Postcode
+    @Pattern(regexp = "\\b\\d{5}\\b|\\b\\d{4}\\b", message = "Invalid Finnish postal code!")
     private String postcode;
 
-    @PhoneNumber
+    @Pattern(regexp = "^\\+(?:[0-9] ?){6,14}[0-9]$", message = "Invalid international phone number!")
     private String phone;
 
     @Email(message = "Must be valid email address!")
