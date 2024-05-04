@@ -16,8 +16,6 @@ import com.dogproductinventory.app.domain.DogProduct;
 import com.dogproductinventory.app.domain.DogProductRepository;
 import com.dogproductinventory.app.domain.Manufacturer;
 import com.dogproductinventory.app.domain.ManufacturerRepository;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class ManufacturerController {
@@ -25,11 +23,9 @@ public class ManufacturerController {
     @Autowired
     private ManufacturerRepository manurepository;
 
-
     @Autowired
     private DogProductRepository produrepository;
     //manufacturer product listiä varten ^^
-
 
     // listaa kaikki valmistajat
     @GetMapping("/manufacturerlist")

@@ -20,8 +20,7 @@ public class DogProduct {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column (name="id")
-	private long productId;
+	private long id;
 
 	@NotBlank(message = "Can't contain only blank spaces!")
 	@Size(max = 40, message = "Max 40 characters!")
@@ -69,12 +68,12 @@ public class DogProduct {
 		this.type = type;
 	}
 
-	public long getProductId() {
-		return productId;
+	public long getId() {
+		return id;
 	}
 
-	public void setProductId(long productId) {
-		this.productId = productId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {

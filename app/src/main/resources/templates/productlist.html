@@ -22,7 +22,7 @@
             <th colspan="2"></th>
             
         </tr>
-        <tr th:each="product : ${productlist}"> 
+        <tr th:each="product : ${products}"> 
             <td th:text="${product.name}"></td>
             <td th:text="${product.color}"></td>
             <td th:text="${product.price}"></td>
@@ -31,8 +31,8 @@
             <td th:text="${product.stock}"></td>
             <td th:text="${product.type.name}"></td>
 
-            <td><a th:href="@{/editproduct/{id}(id=${product.productId})}"  class="btn btn-success">Edit</a></td>
-			<td><a th:href="@{/deleteproduct/{id}(id=${product.productId})}" class="btn btn-danger"
+            <td><a th:href="@{/editproduct/{id}(id=${product.id})}"  class="btn btn-success">Edit</a></td>
+			<td><a th:href="@{/deleteproduct/{id}(id=${product.id})}" class="btn btn-danger"
                 onclick="confirm('Are you sure you want to delete this?')"><button class="btn btn-danger">Delete</button></a></td>
         </tr>
     </table >
