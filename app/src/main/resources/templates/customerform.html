@@ -25,7 +25,7 @@
       <input
         type="text"
         th:field="*{firstName}"
-        placeholder="firstName"
+        placeholder="Firstname"
         required
       />
       <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
@@ -34,30 +34,30 @@
       <input
         type="text"
         th:field="*{lastName}"
-        placeholder="lastName"
+        placeholder="Lastname"
         required
       />
       <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
         >Error</span
       >
-      <input type="text" th:field="*{phone}" placeholder="phone" required />
+      <input type="text" th:field="*{phone}" placeholder="Phone" required />
       <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
         >Error</span
       >
-      <input type="text" th:field="*{address}" placeholder="address" required />
+      <input type="text" th:field="*{address}" placeholder="Address" required />
       <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
         >Error</span
       >
       <input
         type="text"
         th:field="*{postcode}"
-        placeholder="postcode"
+        placeholder="Postcode"
         required
       />
       <span th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}"
         >Error</span
       >
-      <input type="text" th:field="*{email}" placeholder="email" required />
+      <input type="text" th:field="*{email}" placeholder="Email" required />
       <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
         >Error</span
       >
