@@ -1,6 +1,5 @@
 package com.dogproductinventory.app.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -39,16 +38,11 @@ public class DogProduct {
 	@PositiveOrZero(message = "Stock can't go under zero!")
 	private int stock;
 
-	// Valmistajan lisääminen DogProduct- tauluun
-	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
-	// Manufacturer taulun pääavain on foreign key tässä DogProduct taulussa
 	@ManyToOne(fetch = FetchType.LAZY)
-	//manufacturer taulun id kentan nimi
 	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	//product_type taulun id kentan nimi
 	@JoinColumn(name = "product_type_id")
 	private ProductType type;
 
@@ -131,37 +125,4 @@ public class DogProduct {
 	public void setType(ProductType type) {
 		this.type = type;
 	}
-	
-	
-	
-	
-
-
-
-
-	
-	
-	
-	
-	
-	
-
-
-	
-	
-
-
-	
-	
-	
-	
-
-
-	
-	
-
-
-
-
-	
 }

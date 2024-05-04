@@ -117,5 +117,4 @@ public class Customer {
         return "Customer [customerId=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone="
         + phone + ", email=" + email + ", address=" + address + ", postcode=" + postcode + "]";
     }
-
 }
