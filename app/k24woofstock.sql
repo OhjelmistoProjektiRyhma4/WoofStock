@@ -4,13 +4,13 @@ DROP TABLE IF EXISTS product_type;
 DROP TABLE IF EXISTS customer;
 
 CREATE TABLE manufacturer (
-    manufacturer_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
     phone VARCHAR(35) NOT NULL
 );
 CREATE TABLE product_type (
-    product_type_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 CREATE TABLE dog_product (
@@ -20,10 +20,10 @@ CREATE TABLE dog_product (
     stock INT NOT NULL,
     size VARCHAR(10) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    manufacturer INT NOT NULL,
-    type INT NOT NULL,
-    FOREIGN KEY (manufacturer) REFERENCES manufacturer(manufacturer_id),
-    FOREIGN KEY (type) REFERENCES product_type(product_type_id)
+    manufacturer_id INT NOT NULL,
+    product_type_id INT NOT NULL,
+    FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(id),
+    FOREIGN KEY (product_type_id) REFERENCES product_type(id)
 );
 CREATE TABLE customer (
     id SERIAL PRIMARY KEY,
