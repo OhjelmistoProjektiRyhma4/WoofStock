@@ -7,15 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h3>all manufacturers</h3>
+    <h3>All manufacturers</h3>
     
     
     <table  class="table table-striped">
         <tr>
-            <th>name</th>
-            <th>address</th>
-            <th>phone</th>
-            <th>products</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Products</th>
             <th colspan="2"></th>
         </tr>
         <tr th:each="manufacturer : ${manufacturers}"> 
@@ -43,13 +43,13 @@
     </table>
     <br>
     <br>
-    <a th:href="@{/addmanufacturer}"><button class="btn btn-primary">add manufacturer</button></a>
+    <a th:href="@{/addmanufacturer}"><button class="btn btn-primary">Add manufacturer</button></a>
     <br><br>
     
-    <a th:href="@{/productlist}"><button class="btn btn-dark">productlist</button></a>
+    <a th:href="@{/productlist}"><button class="btn btn-dark">Productlist</button></a>
     <br><br>
-    <a th:href="@{/customerlist}"><button class="btn btn-dark">customerlist</button></a>
+    <a th:href="@{/customerlist}"><button class="btn btn-dark">Customerlist</button></a>
     <br><br>
-    <a th:href="@{/}"><button class="btn btn-dark">etusivu</button></a>
+    <a th:href="@{/}"><button class="btn btn-dark">Etusivu</button></a>
 </body>
 </html>

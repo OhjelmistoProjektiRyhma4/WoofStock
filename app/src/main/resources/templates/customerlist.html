@@ -11,16 +11,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
   <body>
-    <h3>all customers</h3>
+    <h3>All customers</h3>
 
     <table class="table table-striped">
       <tr>
-        <th>firstname</th>
-        <th>lastname</th>
-        <th>phone</th>
-        <th>address</th>
-        <th>postcode</th>
-        <th>email</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Postcode</th>
+        <th>Email</th>
         <th colspan="2"></th>
       </tr>
       <tr th:each="customer : ${customers}">
@@ -47,13 +47,13 @@
     <br />
     <br />
     <a th:href="@{/addcustomer}"
-      ><button class="btn btn-primary">add customer</button></a
+      ><button class="btn btn-primary">Add customer</button></a
     >
     <br /><br />
-    <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">manufacturerlist</button></a>
+    <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">Manufacturerlist</button></a>
     <br><br>
-    <a th:href="@{/productlist}"><button class="btn btn-dark">productlist</button></a>
+    <a th:href="@{/productlist}"><button class="btn btn-dark">Productlist</button></a>
     <br><br>
-    <a th:href="@{/}" class="btn btn-dark">etusivu </a>
+    <a th:href="@{/}" class="btn btn-dark">Etusivu </a>
   </body>
 </html>

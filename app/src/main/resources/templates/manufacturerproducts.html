@@ -7,16 +7,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h3 th:text="'all ' + ${manufacturer.name} + ' products'"></h3>
+    <h3 th:text="'All ' + ${manufacturer.name} + ' products'"></h3>
     
     
     <table  class="table table-striped">
         <tr>
-            <th>name</th>
-            <th>color</th>
-            <th>price</th>
-            <th>size</th>
-            <th>type</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Type</th>
             <th colspan="2"></th>
         </tr>
         <tr th:each="product : ${products}"> 
@@ -29,8 +29,8 @@
     </table>
            
     
-    <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">manufacturerlist</button>  </a>
+    <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">Manufacturerlist</button>  </a>
     <br><br>
-    <a th:href="@{/}"><button class="btn btn-dark">etusivu</button></a>
+    <a th:href="@{/}"><button class="btn btn-dark">Etusivu</button></a>
 </body>
 </html>
