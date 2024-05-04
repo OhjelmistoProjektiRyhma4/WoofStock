@@ -35,7 +35,3 @@ CREATE TABLE customer (
     postcode VARCHAR(20) NOT NULL
 );
 
-INSERT INTO product_type (name)
-VALUES 
-	('Vaate'),
-	('Lelu');
