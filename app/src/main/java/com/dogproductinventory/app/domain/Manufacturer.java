@@ -21,7 +21,6 @@ public class Manufacturer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="manufacturer_id")
 	private long id;
 
 	@NotBlank(message = "Can't be only blank spaces!")

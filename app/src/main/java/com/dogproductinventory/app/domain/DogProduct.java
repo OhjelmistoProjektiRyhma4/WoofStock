@@ -38,10 +38,6 @@ public class DogProduct {
 
 	@PositiveOrZero(message = "Stock can't go under zero!")
 	private int stock;
-	
-	// Default constructor
-	public DogProduct() {
-	}
 
 	// Valmistajan lisääminen DogProduct- tauluun
 	// Many-to-One tarkoittaa tässä, että tuotteella voi olla yksi valmistaja
@@ -55,6 +51,10 @@ public class DogProduct {
 	//product_type taulun id kentan nimi
 	@JoinColumn(name = "product_type_id")
 	private ProductType type;
+
+	// Default constructor
+	public DogProduct() {
+	}
 
 	public DogProduct(String name, String color,  int price, String size, int stock, Manufacturer manufacturer,
 			ProductType type) {
