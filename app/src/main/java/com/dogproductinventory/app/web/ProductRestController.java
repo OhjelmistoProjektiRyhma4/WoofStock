@@ -43,7 +43,7 @@ public class ProductRestController {
 	// Edit dogproduct
 	@PutMapping("/dogproducts/{id}")
 	DogProduct editDogProduct(@RequestBody DogProduct editedDogProduct, @PathVariable Long id) {
-		editedDogProduct.setProductId(id);
+		editedDogProduct.setId(id);
 		return repository.save(editedDogProduct);
 	}
 

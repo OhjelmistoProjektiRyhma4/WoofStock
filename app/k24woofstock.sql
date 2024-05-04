@@ -34,3 +34,8 @@ CREATE TABLE customer (
     address VARCHAR(255) NOT NULL,
     postcode VARCHAR(20) NOT NULL
 );
+
+INSERT INTO product_type (name)
+VALUES 
+	('Vaate'),
+	('Lelu');

@@ -19,10 +19,10 @@ import com.dogproductinventory.app.domain.DogProduct;
 public class ProductController {
 
     @Autowired
-    private DogProductRepository productrepository;
+    private DogProductRepository productRepository;
 
     @Autowired
-    private ManufacturerRepository manurepository;
+    private ManufacturerRepository manuRepository;
 
     @Autowired
     private ProductTypeRepository typeRepository;
@@ -36,8 +36,7 @@ public class ProductController {
     // listaa kaikki tuotteet
     @GetMapping("/productlist")
     public String productList(Model model) {
-        model.addAttribute("productlist", productrepository.findAll());
-
+        model.addAttribute("products", productRepository.findAll());
         return "productlist";
     }
 
@@ -45,7 +44,7 @@ public class ProductController {
     @GetMapping("/addproduct")
     public String addProduct(Model model) {
         model.addAttribute("product", new DogProduct());
-        model.addAttribute("manufacturer", manurepository.findAll());
+        model.addAttribute("manufacturer", manuRepository.findAll());
         model.addAttribute("type", typeRepository.findAll());
         return "productform";
     }
@@ -53,20 +52,21 @@ public class ProductController {
     // tuotteen muokkaus
     @GetMapping("/editproduct/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
-        model.addAttribute("product", productrepository.findById(productId));
-        model.addAttribute("manufacturer", manurepository.findAll());
+        model.addAttribute("product", productRepository.findById(productId));
+        model.addAttribute("manufacturer", manuRepository.findAll());
         model.addAttribute("type", typeRepository.findAll());
         return "productform";
     }
 
     // tallentaa tiedot repositoryyn ja palaa sivulle joka näyttää listan
     @PostMapping("/saveproduct")
-    public String saveProduct(@Valid @ModelAttribute("product") DogProduct produ, BindingResult result, Model model) {
+    public String saveProduct(@Valid @ModelAttribute("product") DogProduct product, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("manufacturer", manurepository.findAll());
+            model.addAttribute("manufacturer", manuRepository.findAll());
+            model.addAttribute("type", typeRepository.findAll());
             return "productform";
         } else {
-            productrepository.save(produ);
+            productRepository.save(product);
             return "redirect:/productlist";
         }
     }
@@ -74,7 +74,7 @@ public class ProductController {
     // tuotteen poisto
     @GetMapping("/deleteproduct/{id}")
     public String deleteProduct(@PathVariable("id") Long produId) {
-        productrepository.deleteById(produId);
+        productRepository.deleteById(produId);
         return "redirect:/productlist";
     }
 }
