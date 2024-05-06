@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Positive;
 public class DogProduct {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@NotBlank(message = "Can't contain only blank spaces!")

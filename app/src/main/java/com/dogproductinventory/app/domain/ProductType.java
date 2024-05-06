@@ -18,7 +18,7 @@ import jakarta.validation.constraints.NotBlank;
 public class ProductType {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	@NotBlank(message = "Can't contain only blank spaces!")

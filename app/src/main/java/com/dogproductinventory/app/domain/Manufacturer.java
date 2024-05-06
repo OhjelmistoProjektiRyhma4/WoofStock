@@ -20,7 +20,7 @@ import jakarta.validation.constraints.Size;
 public class Manufacturer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@NotBlank(message = "Can't be only blank spaces!")
