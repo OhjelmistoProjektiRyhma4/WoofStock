@@ -23,12 +23,12 @@ public class DogProduct {
 
 	@NotBlank(message = "Can't contain only blank spaces!")
 	@Size(max = 40, message = "Max 40 characters!")
-	private String name; 
-	
+	private String name;
+
 	@NotBlank(message = "Can't contain only blank spaces!")
-	@Size(max = 40 , message = "Max 40 characters!")
+	@Size(max = 40, message = "Max 40 characters!")
 	private String color;
-	
+
 	@Size(min = 1, max = 2, message = "Needs to be presented with min 1 and max 2 letters!")
 	private String size;
 
@@ -41,7 +41,7 @@ public class DogProduct {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_type_id")
 	private ProductType type;
@@ -50,7 +50,7 @@ public class DogProduct {
 	public DogProduct() {
 	}
 
-	public DogProduct(String name, String color,  int price, String size, int stock, Manufacturer manufacturer,
+	public DogProduct(String name, String color, int price, String size, int stock, Manufacturer manufacturer,
 			ProductType type) {
 		super();
 		this.name = name;

@@ -1,5 +1,7 @@
 package com.dogproductinventory.app.domain;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,16 +25,16 @@ public class Customer {
     @NotBlank(message = "Can't contain only blank spaces!")
     @Size(max = 20, message = "Max 20 characters!")
     private String firstName;
-    
+
     @Column(name = "lastname")
     @NotBlank(message = "Can't contain only blank spaces!")
     @Size(max = 20, message = "Max 20 characters!")
     private String lastName;
-    
+
     @Size(max = 50, message = "Max 50 characters!")
     @NotBlank(message = "Can't contain only blank spaces!")
     private String address;
-    
+
     @Pattern(regexp = "\\b\\d{5}\\b|\\b\\d{4}\\b", message = "Invalid Finnish postal code!")
     private String postcode;
 
@@ -115,6 +117,6 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer [customerId=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone="
-        + phone + ", email=" + email + ", address=" + address + ", postcode=" + postcode + "]";
+                + phone + ", email=" + email + ", address=" + address + ", postcode=" + postcode + "]";
     }
 }
