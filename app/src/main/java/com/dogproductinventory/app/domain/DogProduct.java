@@ -48,12 +48,7 @@ public class DogProduct {
 	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 
-<<<<<<< HEAD
-	@ManyToOne(fetch = FetchType.LAZY)
-=======
-	
 	@ManyToOne(fetch = FetchType.EAGER)
->>>>>>> f05ae173ab5b9e4b3cf66f21f1368c0095ccf1b5
 	@JoinColumn(name = "product_type_id")
 	private ProductType type;
 
