@@ -38,11 +38,22 @@ public class DogProduct {
 	@PositiveOrZero(message = "Stock can't go under zero!")
 	private int stock;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	// @ManyToOne(fetch = FetchType.LAZY)
+	// @JoinColumn(name = "manufacturer_id")
+	// private Manufacturer manufacturer;
+
+	// ^^^^^^ ei toimi jos FetchType.LAZY, pitää olla FetchType.EAGER
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 
+<<<<<<< HEAD
 	@ManyToOne(fetch = FetchType.LAZY)
+=======
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+>>>>>>> f05ae173ab5b9e4b3cf66f21f1368c0095ccf1b5
 	@JoinColumn(name = "product_type_id")
 	private ProductType type;
 
