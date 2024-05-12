@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/css/css/bootstrap.min.css"
+      th:href="@{/css/css/bootstrap.min.css}"
+    />
+
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>
+        <h3>Add/Edit product</h3>
+    </div>
+    
+    <form action="#" method="post" th:action="@{/saveproduct}" th:object="${product}">
+      <input type="hidden" th:field="*{id}"/>
+      <input type="text" th:field="*{name}" placeholder="Name" required>
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
+      <input type="text" th:field="*{color}" placeholder="Color" required>
+      <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Error</span>
+      <input type="number" th:field="*{price}" placeholder="Price" required>
+      <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</span>
+
+      <select th:field="*{size}" required>
+        <option value="" disabled selected hidden>Select size</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+      </select>
+      <span th:if="${#fields.hasErrors('size')}" th:errors="*{size}">Error</span>
+
+      <select th:field="*{manufacturer}" required>
+        <option value="" disabled selected hidden>Select manufacturer</option>
+        <option
+          th:each="manufacturer : ${manufacturer}"
+          th:value="${manufacturer.id}"
+          th:text="${manufacturer.name}"
+        ></option>
+      </select>
+
+      <input type="number" th:field="*{stock}" placeholder="stock" min="0" required>
+      <span th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}">Error</span>
+
+      <select th:field="*{type}" required>
+        <option value="" disabled selected hidden>Select type</option>
+        <option
+          th:each="type : ${type}"
+          th:value="${type.id}"
+          th:text="${type.name}"
+        ></option>
+      </select>
+      
+      <input type="reset" value="Reset" class="btn btn-danger" />
+      <input type="submit" value="Submit" class="btn btn-success" />
+      <input type="button" value="Cancel" onclick="window.location.href='/productlist'" class="btn btn-danger">
+    </form>
+  </body>
+</html>

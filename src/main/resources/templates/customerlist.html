@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/css/css/bootstrap.min.css"
+      th:href="@{/css/css/bootstrap.min.css}"
+    />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <h3>All customers</h3>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Postcode</th>
+        <th>Email</th>
+        <th colspan="2"></th>
+      </tr>
+      <tr th:each="customer : ${customers}">
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td th:text="${customer.phone}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.postcode}"></td>
+        <td th:text="${customer.email}"></td>
+
+        <td>
+          <a th:href="@{/editcustomer/{id}(id=${customer.id})}" class="btn btn-success">
+            Edit
+          </a>
+        </td>
+        <td>
+          <a th:href="@{/deletecustomer/{id}(id=${customer.id})}" class="btn btn-danger"
+            onclick="return confirm('Are you sure you want to delete this?')">
+            Delete
+          </a>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <br />
+    <a th:href="@{/addcustomer}"
+      ><button class="btn btn-primary">Add customer</button></a
+    >
+    <br /><br />
+    <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">Manufacturerlist</button></a>
+    <br><br>
+    <a th:href="@{/productlist}"><button class="btn btn-dark">Productlist</button></a>
+    <br><br>
+    <a th:href="@{/}" class="btn btn-dark">Etusivu </a>
+  </body>
+</html>

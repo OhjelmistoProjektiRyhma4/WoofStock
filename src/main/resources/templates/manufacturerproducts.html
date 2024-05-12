@@ -1,0 +1,38 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3 th:text="'All ' + ${manufacturer.name} + ' products'"></h3>
+    
+    
+    <table  class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Stock</th>
+            <th>Type</th>
+            <th colspan="2"></th>
+        </tr>
+        <tr th:each="product : ${products}"> 
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.color}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.size}"></td>
+            <td th:text="${product.stock}"></td>
+            <td th:text="${product.type.name}"></td>
+        </tr>
+    </table>
+           
+    
+    <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">Manufacturerlist</button>  </a>
+    <br><br>
+    <a th:href="@{/}"><button class="btn btn-dark">Etusivu</button></a>
+</body>
+</html>

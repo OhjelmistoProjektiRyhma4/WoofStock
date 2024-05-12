@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style> 
+            body {
+                text-align: center;
+                margin-top: 70px;
+            }
+    </style>
+</head>
+<body>
+    <h1>Error!</h1>
+
+    <p th:text="${errorMessage}"></p>
+
+    <form th:action="@{/}" method="get">
+        <button type="submit" class="btn btn-sm btn-primary">Back to index</button>
+    </form>
+</body>
+</html>
