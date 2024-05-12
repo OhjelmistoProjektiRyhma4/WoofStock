@@ -1,8 +1,5 @@
 package com.dogproductinventory.app;
 
-import java.util.List;
-import java.util.Arrays;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 
 import org.springframework.core.env.Environment;
 
+import java.util.List;
+import java.util.Arrays;
 import com.dogproductinventory.app.domain.Customer;
 import com.dogproductinventory.app.domain.CustomerRepository;
 import com.dogproductinventory.app.domain.DogProduct;
@@ -39,8 +38,10 @@ public class AppApplication {
             log.info("Testing Environment Variables...");
             String renderUsername = env.getProperty("RENDER_USERNAME");
             String renderPassword = env.getProperty("RENDER_PASSWORD");
+			String renderExternalUrl = env.getProperty("RENDER_EXTERNAL_URL");
             log.info("RENDER_USERNAME: {}", renderUsername);
             log.info("RENDER_PASSWORD: {}", renderPassword);
+			log.info("RENDER_EXTERNAL_URL: {}", renderExternalUrl);
             log.info("Environment Variables Testing Completed.");
         };
     }
