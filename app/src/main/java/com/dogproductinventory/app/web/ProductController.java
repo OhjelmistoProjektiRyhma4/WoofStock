@@ -1,12 +1,15 @@
 package com.dogproductinventory.app.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
@@ -16,6 +19,7 @@ import com.dogproductinventory.app.domain.ProductTypeRepository;
 import com.dogproductinventory.app.domain.DogProduct;
 
 @Controller
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class ProductController {
 
     @Autowired
@@ -26,6 +30,8 @@ public class ProductController {
 
     @Autowired
     private ProductTypeRepository typeRepository;
+    
+
     
 
     @GetMapping("/") //TODO: Loogisin sijainti metodille?
@@ -41,6 +47,7 @@ public class ProductController {
     }
 
     // lomake uudelle tuotteelle
+    //@PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/addproduct")
     public String addProduct(Model model) {
         model.addAttribute("product", new DogProduct());
@@ -50,6 +57,7 @@ public class ProductController {
     }
 
     // tuotteen muokkaus
+    //@PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/editproduct/{id}")
     public String editProduct(@PathVariable("id") Long productId, Model model) {
         model.addAttribute("product", productRepository.findById(productId));
@@ -72,6 +80,7 @@ public class ProductController {
     }
 
     // tuotteen poisto
+    //@PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/deleteproduct/{id}")
     public String deleteProduct(@PathVariable("id") Long produId) {
         productRepository.deleteById(produId);

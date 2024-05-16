@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
   <head>
     <link
       type="text/css"
@@ -11,6 +11,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
   <body>
+    <form th:action="@{/logout}" method="post">
+      <input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+  </form>
     <h3>All customers</h3>
 
     <table class="table table-striped">
@@ -31,12 +34,12 @@
         <td th:text="${customer.postcode}"></td>
         <td th:text="${customer.email}"></td>
 
-        <td>
+        <td sec:authorize="hasRole('ADMIN')">
           <a th:href="@{/editcustomer/{id}(id=${customer.id})}" class="btn btn-success">
             Edit
           </a>
         </td>
-        <td>
+        <td sec:authorize="hasRole('ADMIN')">
           <a th:href="@{/deletecustomer/{id}(id=${customer.id})}" class="btn btn-danger"
             onclick="return confirm('Are you sure you want to delete this?')">
             Delete
@@ -46,7 +49,7 @@
     </table>
     <br />
     <br />
-    <a th:href="@{/addcustomer}"
+    <a sec:authorize="hasRole('ADMIN')" th:href="@{/addcustomer}"
       ><button class="btn btn-primary">Add customer</button></a
     >
     <br /><br />

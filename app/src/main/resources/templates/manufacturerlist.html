@@ -1,12 +1,15 @@
 
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
     <title>DogStore</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+    </form>
     <h3>All manufacturers</h3>
     
     
@@ -28,12 +31,12 @@
                 </a>
             </td>
             
-            <td>
+            <td sec:authorize="hasRole('ADMIN')">
                 <a th:href="@{/editmanufacturer/{id}(id=${manufacturer.id})}"  class="btn btn-success">
                     Edit
                 </a>
             </td>
-			<td>
+			<td sec:authorize="hasRole('ADMIN')">
                 <a th:href="@{/deletemanufacturer/{id}(id=${manufacturer.id})}"  class="btn btn-danger"
                     onclick="return confirm('Are you sure you want to delete this?')">
                     Delete
@@ -43,7 +46,7 @@
     </table>
     <br>
     <br>
-    <a th:href="@{/addmanufacturer}"><button class="btn btn-primary">Add manufacturer</button></a>
+    <a sec:authorize="hasRole('ADMIN')" th:href="@{/addmanufacturer}"><button class="btn btn-primary">Add manufacturer</button></a>
     <br><br>
     
     <a th:href="@{/productlist}"><button class="btn btn-dark">Productlist</button></a>

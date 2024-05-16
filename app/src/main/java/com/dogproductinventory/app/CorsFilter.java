@@ -1,4 +1,5 @@
-package com.dogproductinventory.app;
+
+/*package com.dogproductinventory.app;
 
 import java.io.IOException;
 import jakarta.servlet.FilterChain;
@@ -24,3 +25,4 @@ public class CorsFilter extends OncePerRequestFilter {
         }
     }
 }
+*/
