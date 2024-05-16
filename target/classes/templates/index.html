@@ -1,0 +1,18 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/css/bootstrap.min.css" th:href="@{/css/css/bootstrap.min.css}" />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3 style="text-align: center; margin-top: 70px;">Etusivu</h3>
+    <div style="text-align: center;">
+
+        <a th:href="@{/manufacturerlist}"><button class="btn btn-dark">Manufacturerlist</button>  </a>
+        <a th:href="@{/productlist}"><button class="btn btn-dark">Productlist</button> </a>
+        <a th:href="@{/customerlist}"><button class="btn btn-dark">Customerlist</button> </a>
+    </div>
+</body>
+</html>

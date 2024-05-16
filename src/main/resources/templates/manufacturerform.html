@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/css/css/bootstrap.min.css"
+      th:href="@{/css/css/bootstrap.min.css}"
+    />
+    <title>DogStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <div>
+        <h3>Add/edit manufacturer</h3>
+    </div>
+
+    <form
+      action="#"
+      method="post"
+      th:action="@{/savemanufacturer}"
+      th:object="${manufacturer}"
+    >
+      <input type="hidden" th:field="*{id}" />
+      <input type="text" th:field="*{name}" placeholder="Name" required />
+      <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span>
+      <input type="text" th:field="*{address}" placeholder="Address" required />
+      <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Error</span>
+      <input type="text" th:field="*{phone}" placeholder="Phone" required />
+      <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</span>
+
+      <input type="reset" value="Reset" class="btn btn-danger" />
+      <input type="submit" value="Submit" class="btn btn-success" />
+      <input type="button" value="Cancel" onclick="window.location.href='/manufacturerlist'" class="btn btn-danger">
+    </form>
+  </body>
+</html>
