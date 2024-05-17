@@ -81,12 +81,10 @@ public UserDetailsService userDetailsService() {
       public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/images/**")
         .allowedOrigins(
-                "https://cdn2.steamgriddb.com",
-                "https://cdn.cloudflare.steamstatic.com",
                 "https://web.postman.co"
         )
         .allowedHeaders("Content-Type")
-        .allowedMethods("GET", "POST", "PUT")
+        .allowedMethods("GET", "POST", "PUT", "DELETE")
         .allowCredentials(false);
       }
     };
